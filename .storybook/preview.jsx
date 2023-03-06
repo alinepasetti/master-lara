@@ -1,4 +1,5 @@
 import { ThemeProvider } from 'styled-components';
+import { RecipesProvider } from 'contexts/RecipesProvider';
 import { GlobalStyles } from '../src/styles/global-styles';
 import { theme } from '../src/styles/theme';
 import '../public/assets/fonts/styles.css';
@@ -23,8 +24,10 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
-      <Story />
-      <GlobalStyles />
+      <RecipesProvider>
+        <Story />
+        <GlobalStyles />
+      </RecipesProvider>
     </ThemeProvider>
   ),
 ];

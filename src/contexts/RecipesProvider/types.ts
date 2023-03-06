@@ -1,14 +1,15 @@
-export type RequestStatus = 'RECIPES_LOADING' | 'RECIPES_SUCCESS';
-
-export const RECIPES_LOADING = 'RECIPES_LOADING';
-export const RECIPES_SUCCESS = 'RECIPES_SUCCESS';
+export enum RequestStatus {
+  RECIPES_LOADING = 'RECIPES_LOADING',
+  RECIPES_SUCCESS = 'RECIPES_SUCCESS',
+}
 
 export type Recipe = {
   label: string;
   image: string;
   url: string;
   ingredientLines: string[];
-  cuisineType: string[];
+  totalTime: number;
+  cuisineType: string;
 };
 
 export type RawRecipe = {
@@ -46,4 +47,8 @@ export type RecipeResponse = {
   hits: RawRecipe[];
 };
 
-export type RecipesProps = { recipes: Recipe[]; requestStatus: RequestStatus };
+export type RecipesProps = {
+  recipes: Recipe[];
+  searchedIngredients: string[];
+  requestStatus: RequestStatus;
+};
