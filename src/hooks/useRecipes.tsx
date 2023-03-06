@@ -6,6 +6,7 @@ import {
   Recipe,
 } from 'contexts/RecipesProvider/types';
 import { useEffect, useState } from 'react';
+import { parseRecipeResponse } from 'services/utils';
 
 export type RecipesProps = {
   recipe: Recipe | null;
@@ -22,7 +23,7 @@ const useRecipes = () => {
   useEffect(() => {
     async function asyncDelay() {
       await delay(2000);
-      setRecipes(data);
+      setRecipes(parseRecipeResponse(data).recipes);
       setRequestStatus(RECIPES_SUCCESS);
     }
     asyncDelay();
