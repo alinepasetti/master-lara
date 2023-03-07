@@ -1,6 +1,7 @@
 import * as Styled from './styles';
 import { secondsToMinutes } from 'services/utils';
 import { Heading } from 'components/Heading';
+import Link from 'next/link';
 
 export type RecipeCardProps = {
   data: {
@@ -26,17 +27,19 @@ export const RecipeCard = ({
   },
 }: RecipeCardProps) => {
   return (
-    <Styled.Container href={`/recipe/${id}`}>
-      <Styled.Image src={image} alt={label} />
-      <Styled.ContentContainer>
-        <Heading>{label}</Heading>
-        <Styled.Tag>{cuisineType}</Styled.Tag>
-        <Styled.Tag>{secondsToMinutes(totalTime)}</Styled.Tag>
-        <Styled.Tag>
-          {searchedIngredients.length + '/' + ingredientLines.length}
-          <span>ingredients</span>
-        </Styled.Tag>
-      </Styled.ContentContainer>
-    </Styled.Container>
+    <Link href={`/recipe/${id}`} passHref legacyBehavior>
+      <Styled.Container>
+        <Styled.Image src={image} alt={label} />
+        <Styled.ContentContainer>
+          <Heading>{label}</Heading>
+          <Styled.Tag>{cuisineType}</Styled.Tag>
+          <Styled.Tag>{secondsToMinutes(totalTime)}</Styled.Tag>
+          <Styled.Tag>
+            {searchedIngredients.length + '/' + ingredientLines.length}
+            <span>ingredients</span>
+          </Styled.Tag>
+        </Styled.ContentContainer>
+      </Styled.Container>
+    </Link>
   );
 };
