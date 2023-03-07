@@ -24,7 +24,7 @@ const useRecipes = () => {
     asyncDelay();
   }, []);
 
-  return { requestStatus, recipes, searchedIngredients };
+  return { requestStatus, recipes, searchedIngredients, setRequestStatus };
 };
 
 export default useRecipes;

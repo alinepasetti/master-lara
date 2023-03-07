@@ -7,9 +7,14 @@ export type RecipesProviderProps = {
 
 export const RecipesProvider = ({ children }: RecipesProviderProps) => {
   const { requestStatus, recipes, searchedIngredients } = useRecipes();
+
   return (
     <RecipesContext.Provider
-      value={{ recipes, searchedIngredients, requestStatus }}
+      value={{
+        recipes,
+        searchedIngredients,
+        requestStatus,
+      }}
     >
       {children}
     </RecipesContext.Provider>
