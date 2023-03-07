@@ -1,9 +1,10 @@
-import { secondsToMinutes } from 'services/utils';
 import * as Styled from './styles';
+import { secondsToMinutes } from 'services/utils';
 import { Heading } from 'components/Heading';
 
 export type RecipeCardProps = {
   data: {
+    id: string;
     label: string;
     image: string;
     ingredientLines: string[];
@@ -15,6 +16,7 @@ export type RecipeCardProps = {
 
 export const RecipeCard = ({
   data: {
+    id,
     label,
     image,
     ingredientLines,
@@ -24,7 +26,7 @@ export const RecipeCard = ({
   },
 }: RecipeCardProps) => {
   return (
-    <Styled.Container>
+    <Styled.Container href={`/recipe/${id}`}>
       <Styled.Image src={image} alt={label} />
       <Styled.ContentContainer>
         <Heading>{label}</Heading>

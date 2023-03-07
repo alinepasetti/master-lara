@@ -4,6 +4,7 @@ export enum RequestStatus {
 }
 
 export type Recipe = {
+  id: string;
   label: string;
   image: string;
   url: string;

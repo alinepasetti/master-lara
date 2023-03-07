@@ -27,6 +27,7 @@ export default {
       totalTime: 116,
       cuisineType: capitalizeFirstLetter('indian'),
       searchedIngredients: ['chicken', 'banana', 'onion'],
+      id: '5cb28f4bea3d415932a69057d94d2bfc',
     },
   },
   argTypes: {

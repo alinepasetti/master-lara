@@ -1,7 +1,7 @@
 import { data } from 'contexts/RecipesProvider/mockData';
 import { RequestStatus, Recipe } from 'contexts/RecipesProvider/types';
 import { useEffect, useState } from 'react';
-import { parseRecipeResponse } from 'services/utils';
+import { parseRecipeResponse } from 'services/recipes';
 
 const useRecipes = () => {
   const [requestStatus, setRequestStatus] = useState<RequestStatus>(

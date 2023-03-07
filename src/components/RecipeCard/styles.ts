@@ -17,7 +17,7 @@ export const Container = styled.a`
 export const Image = styled.img`
   max-width: 100%;
   width: 100%;
-  height: 40vh;
+  height: 35vh;
   border-radius: 10px;
   object-fit: cover;
   object-position: center;
