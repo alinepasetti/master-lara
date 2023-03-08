@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import * as Styled from './styles';
-import { RecipesContext } from 'contexts/RecipesProvider/context';
-import { RecipeCard } from 'components/RecipeCard';
-import { RequestStatus } from 'contexts/RecipesProvider/types';
-import { Heading } from 'components/Heading';
+import { RecipesContext } from '../../contexts/RecipesProvider/context';
+import { RequestStatus } from '../../contexts/RecipesProvider/types';
+import { RecipeCard } from '../RecipeCard';
+import { Heading } from '../Heading';
 
 export const Recipes = () => {
   const { recipes, requestStatus } = useContext(RecipesContext);

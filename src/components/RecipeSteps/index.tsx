@@ -7,7 +7,7 @@ export type RecipeStepsProps = {
 
 export const RecipeSteps = ({ ingredientLines }: RecipeStepsProps) => {
   return (
-    <Styled.Container>
+    <Styled.Container aria-label="ingredients-list">
       {ingredientLines.map((ingredient) => (
         <Styled.ListItem key={ingredient}>{ingredient}</Styled.ListItem>
       ))}

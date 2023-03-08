@@ -1,8 +1,8 @@
 import * as Styled from './styles';
-import { secondsToMinutes } from 'services/utils';
-import { Heading } from 'components/Heading';
+import { secondsToMinutes } from '../../services/utils';
+import { Heading } from '../Heading';
 import Link from 'next/link';
-import { IngredientsRatio } from 'components/IngredientsRatio';
+import { IngredientsRatio } from '../IngredientsRatio';
 
 export type RecipeCardProps = {
   id: string;

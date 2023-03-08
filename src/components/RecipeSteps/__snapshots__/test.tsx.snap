@@ -1,0 +1,29 @@
+// Vitest Snapshot v1
+
+exports[`<RecipeSteps /> > should match snapshot 1`] = `
+.c0 {
+  padding: 2.4rem;
+  padding-top: 0;
+  margin: 0;
+}
+
+.c1 {
+  margin-left: 2.4rem;
+}
+
+<ul
+  aria-label="ingredients-list"
+  class="c0"
+>
+  <li
+    class="c1"
+  >
+    sugar
+  </li>
+  <li
+    class="c1"
+  >
+    pepper
+  </li>
+</ul>
+`;

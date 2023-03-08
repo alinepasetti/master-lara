@@ -1,8 +1,8 @@
 import { Recipe } from 'contexts/RecipesProvider/types';
 import * as Styled from './styles';
-import { Heading } from 'components/Heading';
-import { secondsToMinutes } from 'services/utils';
-import { IngredientsRatio } from 'components/IngredientsRatio';
+import { Heading } from '../Heading';
+import { secondsToMinutes } from '../../services/utils';
+import { IngredientsRatio } from '../IngredientsRatio';
 
 export type RecipeInfoProps = {
   label: Recipe['label'];

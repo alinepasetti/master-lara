@@ -1,0 +1,19 @@
+// Vitest Snapshot v1
+
+exports[`<IngredientsRatio /> > should match snapshot 1`] = `
+.c0 {
+  font-size: 1.6rem;
+  margin: 0 0;
+  color: #5c5c5c;
+  font-weight: 400;
+}
+
+<h3
+  class="c0"
+>
+  1 / 3
+  <span>
+    ingredients
+  </span>
+</h3>
+`;
