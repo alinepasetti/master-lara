@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`<RecipeSteps /> > should match snapshot 1`] = `
+exports[`<IngredientsList /> > should match snapshot 1`] = `
 .c0 {
   padding: 2.4rem;
   padding-top: 0;
@@ -8,6 +8,7 @@ exports[`<RecipeSteps /> > should match snapshot 1`] = `
 }
 
 .c1 {
+  color: #075e54;
   margin-left: 2.4rem;
 }
 

@@ -35,3 +35,24 @@ export const parseRecipeResponse = (
     recipes: mapRecipes(response.hits, searchedIngredients),
   };
 };
+
+export const hasIngredientCheck = (
+  ingredientLines: Recipe['ingredientLines'],
+  searchedIngredients: string[],
+) => {
+  return ingredientLines
+    .map((ingredient) => ({
+      ingredient,
+      hasIngredient: compareIngredients(searchedIngredients, ingredient),
+    }))
+    .sort((a) => (a.hasIngredient ? -1 : 1));
+};
+
+export const compareIngredients = (
+  searchedIngredients: string[],
+  ingredient: string,
+): boolean => {
+  return !!searchedIngredients.find((searchedIngredient) => {
+    return ingredient.toLowerCase().includes(searchedIngredient.toLowerCase());
+  });
+};

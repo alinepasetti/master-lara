@@ -1,10 +1,14 @@
 import { screen, within } from '@testing-library/react';
-import { RecipeSteps } from '.';
+import { IngredientsList } from '.';
 import { renderTheme } from '../../styles/render-theme';
 
-describe('<RecipeSteps />', () => {
+describe('<IngredientsList />', () => {
   it('should render 1 list item', () => {
-    renderTheme(<RecipeSteps ingredientLines={['sugar']} />);
+    renderTheme(
+      <IngredientsList
+        ingredientLines={[{ ingredient: 'sugar', hasIngredient: true }]}
+      />,
+    );
     const list = screen.getByRole('list', {
       name: /ingredients/i,
     });
@@ -15,7 +19,14 @@ describe('<RecipeSteps />', () => {
   });
 
   it('should render list of given ingredients', () => {
-    renderTheme(<RecipeSteps ingredientLines={['sugar', 'cane']} />);
+    renderTheme(
+      <IngredientsList
+        ingredientLines={[
+          { ingredient: 'sugar', hasIngredient: true },
+          { ingredient: 'cane', hasIngredient: false },
+        ]}
+      />,
+    );
     const list = screen.getByRole('list', {
       name: /ingredients/i,
     });
@@ -27,7 +38,14 @@ describe('<RecipeSteps />', () => {
   });
 
   it('should match snapshot', () => {
-    renderTheme(<RecipeSteps ingredientLines={['sugar', 'pepper']} />);
+    renderTheme(
+      <IngredientsList
+        ingredientLines={[
+          { ingredient: 'sugar', hasIngredient: true },
+          { ingredient: 'pepper', hasIngredient: true },
+        ]}
+      />,
+    );
     expect(
       screen.getByRole('list', { name: /ingredients/i }),
     ).toMatchSnapshot();

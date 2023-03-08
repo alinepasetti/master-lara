@@ -2,7 +2,7 @@ import { Button } from 'components/Button';
 import { Heading } from 'components/Heading';
 import { ImageHeader } from 'components/ImageHeader';
 import { RecipeInfo } from 'components/RecipeInfo';
-import { RecipeSteps } from 'components/RecipeSteps';
+import { IngredientsList } from 'components/IngredientsList';
 import { ActiveRecipeContext } from 'contexts/ActiveRecipe/context';
 import { useContext } from 'react';
 
@@ -23,7 +23,7 @@ function RecipeDetail() {
             totalTime={activeRecipe.totalTime}
             ingredientRatio={activeRecipe.ingredientRatio}
           />
-          <RecipeSteps ingredientLines={activeRecipe.ingredientLines} />
+          <IngredientsList ingredientLines={activeRecipe.ingredientLines} />
           <Button url={activeRecipe.url}>See more</Button>
         </>
       )}

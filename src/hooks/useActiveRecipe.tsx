@@ -1,12 +1,12 @@
+import { ActiveRecipe } from 'contexts/ActiveRecipe/types';
 import { RecipesContext } from 'contexts/RecipesProvider/context';
 import { data } from 'contexts/RecipesProvider/mockData';
-import { Recipe } from 'contexts/RecipesProvider/types';
 import { useEffect, useState, useContext, useCallback } from 'react';
-import { parseRecipeResponse } from 'services/recipes';
+import { hasIngredientCheck, parseRecipeResponse } from 'services/recipes';
 
 const useActiveRecipe = (id: string) => {
-  const [activeRecipe, setActiveRecipe] = useState<Recipe>(null);
-  const { recipes } = useContext(RecipesContext);
+  const [activeRecipe, setActiveRecipe] = useState<ActiveRecipe>(null);
+  const { recipes, searchedIngredients } = useContext(RecipesContext);
 
   const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
   const findRecipeById = useCallback(
@@ -16,9 +16,17 @@ const useActiveRecipe = (id: string) => {
         // MOCK fetch api with ID
         filterSearchedRecipes = parseRecipeResponse(data)[1];
       }
-      setActiveRecipe(filterSearchedRecipes);
+
+      const activeRecipe = {
+        ...filterSearchedRecipes,
+        ingredientLines: hasIngredientCheck(
+          filterSearchedRecipes.ingredientLines,
+          searchedIngredients,
+        ),
+      } as ActiveRecipe;
+      setActiveRecipe(activeRecipe);
     },
-    [recipes],
+    [recipes, searchedIngredients],
   );
 
   useEffect(() => {
