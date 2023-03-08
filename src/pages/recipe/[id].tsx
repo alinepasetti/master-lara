@@ -8,7 +8,7 @@ const Recipe = () => {
 
   return (
     <ActiveRecipeProvider id={id as string}>
-      <RecipeDetail id={id as string} />
+      <RecipeDetail />
     </ActiveRecipeProvider>
   );
 };

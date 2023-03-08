@@ -9,7 +9,6 @@ export const Container = styled.a`
 
   ${Heading} {
     font-size: 1.6rem;
-    margin: ${({ theme }) => theme.spacings.small} 0;
     margin: 0 0;
   }
 `;
@@ -27,13 +26,6 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0.8rem 0;
-`;
-
-export const Title = styled.h1`
-font-size: 1.6rem;
-margin: ${({ theme }) => theme.spacings.small} 0;
-margin: 0 0;
-
 `;
 
 export const Tag = styled.h3`

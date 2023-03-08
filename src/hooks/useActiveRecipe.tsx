@@ -23,7 +23,7 @@ const useActiveRecipe = (id: string) => {
 
   useEffect(() => {
     async function asyncDelay() {
-      await delay(4000);
+      await delay(1000);
       findRecipeById(id);
     }
     asyncDelay();
