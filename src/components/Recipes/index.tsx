@@ -6,8 +6,7 @@ import { RequestStatus } from 'contexts/RecipesProvider/types';
 import { Heading } from 'components/Heading';
 
 export const Recipes = () => {
-  const { recipes, searchedIngredients, requestStatus } =
-    useContext(RecipesContext);
+  const { recipes, requestStatus } = useContext(RecipesContext);
   return (
     <Styled.Container>
       {requestStatus === RequestStatus.RECIPES_LOADING && (
@@ -16,12 +15,7 @@ export const Recipes = () => {
 
       {requestStatus === RequestStatus.RECIPES_SUCCESS &&
         recipes.map((recipe) => {
-          return (
-            <RecipeCard
-              key={recipe.label}
-              data={{ ...recipe, searchedIngredients }}
-            />
-          );
+          return <RecipeCard key={recipe.label} {...recipe} />;
         })}
     </Styled.Container>
   );

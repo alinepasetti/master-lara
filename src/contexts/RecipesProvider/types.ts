@@ -11,6 +11,7 @@ export type Recipe = {
   ingredientLines: string[];
   totalTime: number;
   cuisineType: string;
+  ingredientRatio: string;
 };
 
 export type RawRecipe = {

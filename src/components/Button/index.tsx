@@ -6,5 +6,9 @@ export type ButtonProps = {
 };
 
 export const Button = ({ children, url }: ButtonProps) => {
-  return <Styled.Button href={url}>{children}</Styled.Button>;
+  return (
+    <Styled.Button href={url} target="_blank">
+      {children}
+    </Styled.Button>
+  );
 };

@@ -185,7 +185,6 @@ export const data: RecipeResponse = {
           '1 tablespoon dried oregano, preferably Mexican, plus more for sprinkling',
           'Salt and freshly ground pepper',
           '1 cup plus 2 tablespoons vegetable oil',
-          '6 large scallions, minced',
           'Twelve 6-inch corn tortillas, cut into thin strips',
           '2 banana chiles or jalapeños, seeded and minced',
         ],

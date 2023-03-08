@@ -6,7 +6,7 @@ export const Container = styled.a`
   flex-direction: column;
   width: 90%;
   margin: 2em auto;
-
+  text-decoration: none;
   ${Heading} {
     font-size: 1.6rem;
     margin: 0 0;

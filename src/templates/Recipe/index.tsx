@@ -21,6 +21,7 @@ function RecipeDetail() {
             cuisineType={activeRecipe.cuisineType}
             label={activeRecipe.label}
             totalTime={activeRecipe.totalTime}
+            ingredientRatio={activeRecipe.ingredientRatio}
           />
           <RecipeSteps ingredientLines={activeRecipe.ingredientLines} />
           <Button url={activeRecipe.url}>See more</Button>
