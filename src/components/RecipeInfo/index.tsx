@@ -19,6 +19,7 @@ export const RecipeInfo = ({
       <Heading>{label}</Heading>
       <Styled.Tag>{cuisineType}</Styled.Tag>
       <Styled.Tag>{secondsToMinutes(totalTime)}</Styled.Tag>
+      <Styled.Divider />
     </Styled.Container>
   );
 };

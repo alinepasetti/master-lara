@@ -1,14 +1,7 @@
 import styled from 'styled-components';
-import { Title as Heading } from '../Heading/styles';
 
 export const Container = styled.div`
-
-  padding: 1.6rem
-
-  ${Heading} {
-    font-size: 1.6rem;
-    margin: 0 0;
-  }
+  padding: 2.4rem;
 `;
 
 export const Tag = styled.h3`
@@ -16,4 +9,11 @@ export const Tag = styled.h3`
   margin: 0 0;
   color: ${({ theme }) => theme.colors.mediumGray};
   font-weight: 400;
+  `;
+
+export const Divider = styled.hr`
+  border: 0;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.mediumGray};
+  margin: 2.4rem auto 0 auto;
+  width: 98%;
 `;

@@ -22,8 +22,8 @@ function RecipeDetail() {
             label={activeRecipe.label}
             totalTime={activeRecipe.totalTime}
           />
-          <Button url={activeRecipe.url}>See more</Button>
           <RecipeSteps ingredientLines={activeRecipe.ingredientLines} />
+          <Button url={activeRecipe.url}>See more</Button>
         </>
       )}
     </>

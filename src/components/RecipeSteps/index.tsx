@@ -8,11 +8,9 @@ export type RecipeStepsProps = {
 export const RecipeSteps = ({ ingredientLines }: RecipeStepsProps) => {
   return (
     <Styled.Container>
-      <ul>
-        {ingredientLines.map((ingredient) => (
-          <li key={ingredient}>{ingredient}</li>
-        ))}
-      </ul>
+      {ingredientLines.map((ingredient) => (
+        <Styled.ListItem key={ingredient}>{ingredient}</Styled.ListItem>
+      ))}
     </Styled.Container>
   );
 };
