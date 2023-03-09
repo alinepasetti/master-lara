@@ -23,7 +23,10 @@ function RecipeDetail() {
             totalTime={activeRecipe.totalTime}
             ingredientRatio={activeRecipe.ingredientRatio}
           />
-          <IngredientsList ingredientLines={activeRecipe.ingredientLines} />
+          <IngredientsList
+            ingredientLines={activeRecipe.ingredientLines}
+            label={activeRecipe.label}
+          />
           <Button url={activeRecipe.url}>See more</Button>
         </>
       )}

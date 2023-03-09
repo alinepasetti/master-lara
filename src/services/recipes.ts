@@ -4,6 +4,10 @@ import {
   RecipeResponse,
 } from 'contexts/RecipesProvider/types';
 import { capitalizeFirstLetter, generateId } from './utils';
+import {
+  ActiveRecipe,
+  IngredientLinesChecked,
+} from 'contexts/ActiveRecipe/types';
 
 export const mapRecipes = (
   rawRecipes: RawRecipe[],
@@ -39,7 +43,7 @@ export const parseRecipeResponse = (
 export const hasIngredientCheck = (
   ingredientLines: Recipe['ingredientLines'],
   searchedIngredients: string[],
-) => {
+): IngredientLinesChecked[] => {
   return ingredientLines
     .map((ingredient) => ({
       ingredient,
@@ -55,4 +59,15 @@ export const compareIngredients = (
   return !!searchedIngredients.find((searchedIngredient) => {
     return ingredient.toLowerCase().includes(searchedIngredient.toLowerCase());
   });
+};
+
+export const buildMessage = (
+  recipeLabel: ActiveRecipe['label'],
+  ingredientLines: IngredientLinesChecked[],
+): string => {
+  const missingIngredients = ingredientLines
+    .filter((ingredient) => !ingredient.hasIngredient)
+    .map((ingredient) => ingredient.ingredient)
+    .join(', ');
+  return `Come and cook ${recipeLabel} with me. Just bring: ${missingIngredients}. xoxo`;
 };

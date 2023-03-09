@@ -14,7 +14,7 @@ const useActiveRecipe = (id: string) => {
       let filterSearchedRecipes = recipes.find((recipe) => recipe.id === id);
       if (!filterSearchedRecipes) {
         // MOCK fetch api with ID
-        filterSearchedRecipes = parseRecipeResponse(data)[1];
+        filterSearchedRecipes = parseRecipeResponse(data).recipes[1];
       }
 
       const activeRecipe = {
@@ -23,7 +23,7 @@ const useActiveRecipe = (id: string) => {
           filterSearchedRecipes.ingredientLines,
           searchedIngredients,
         ),
-      } as ActiveRecipe;
+      };
       setActiveRecipe(activeRecipe);
     },
     [recipes, searchedIngredients],
@@ -32,7 +32,9 @@ const useActiveRecipe = (id: string) => {
   useEffect(() => {
     async function asyncDelay() {
       await delay(1000);
-      findRecipeById(id);
+      if (id) {
+        findRecipeById(id);
+      }
     }
     asyncDelay();
 
