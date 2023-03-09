@@ -1,4 +1,4 @@
-import { Button } from '../Button';
+import { Link } from '../Link';
 import * as Styled from './styles';
 import {
   ActiveRecipe,
@@ -26,9 +26,9 @@ export const IngredientsList = ({
           {ingredient.ingredient}
         </Styled.ListItem>
       ))}
-      <Button url={`https://api.whatsapp.com/send?text=${message}`}>
+      <Link url={`https://api.whatsapp.com/send?text=${message}`}>
         Invite a friend!
-      </Button>
+      </Link>
     </Styled.Container>
   );
 };

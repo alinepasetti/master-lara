@@ -1,9 +1,9 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Button, ButtonProps } from '.';
+import { Link, LinkProps } from '.';
 
 export default {
-  title: 'Button',
-  component: Button,
+  title: 'Link',
+  component: Link,
   args: {
     children: 'O texto está escuro',
   },
@@ -12,4 +12,4 @@ export default {
   },
 } as Meta;
 
-export const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+export const Template: Story<LinkProps> = (args) => <Link {...args} />;

@@ -1,4 +1,4 @@
-import { Button } from 'components/Button';
+import { Link } from 'components/Link';
 import { Heading } from 'components/Heading';
 import { ImageHeader } from 'components/ImageHeader';
 import { RecipeInfo } from 'components/RecipeInfo';
@@ -27,7 +27,7 @@ function RecipeDetail() {
             ingredientLines={activeRecipe.ingredientLines}
             label={activeRecipe.label}
           />
-          <Button url={activeRecipe.url}>See more</Button>
+          <Link url={activeRecipe.url}>See more</Link>
         </>
       )}
     </>
