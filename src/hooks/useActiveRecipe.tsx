@@ -2,12 +2,13 @@ import { ActiveRecipe } from 'contexts/ActiveRecipe/types';
 import { RecipesContext } from 'contexts/RecipesProvider/context';
 import { data } from 'contexts/RecipesProvider/mockData';
 import { RequestStatus } from 'contexts/RecipesProvider/types';
-import { useEffect, useState, useContext, useCallback } from 'react';
+import { useEffect, useState, useContext, useCallback, useRef } from 'react';
 import { hasIngredientCheck, parseRecipeResponse } from 'services/recipes';
 import { useFetch } from './useFetch';
 
 const useActiveRecipe = (id: string) => {
   const [activeRecipe, setActiveRecipe] = useState<ActiveRecipe>(null);
+  const idRef = useRef<string>('');
   const { recipes, searchedIngredients } = useContext(RecipesContext);
   const { setRequest, result, requestStatus, setRequestStatus } =
     useFetch('activeRecipe');
@@ -68,8 +69,10 @@ const useActiveRecipe = (id: string) => {
   }, [result, searchedIngredients, setRequestStatus]);
 
   useEffect(() => {
+    const validId = id && idRef.current !== id;
     async function asyncDelay() {
-      if (id) {
+      if (validId) {
+        idRef.current = id;
         setRequestStatus(RequestStatus.RECIPES_LOADING);
         console.log(
           'useActiveRecipe > get id useEffect > received id - loading',
@@ -80,11 +83,9 @@ const useActiveRecipe = (id: string) => {
       }
     }
     asyncDelay();
+  }, [id, setRequestStatus, findRecipeById]);
 
-    () => setActiveRecipe(null);
-  }, [id, findRecipeById, setRequestStatus]);
-
-  return { activeRecipe, findRecipeById, requestStatus };
+  return { activeRecipe, requestStatus };
 };
 
 export default useActiveRecipe;
