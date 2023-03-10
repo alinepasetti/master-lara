@@ -10,11 +10,12 @@ export const ActiveRecipeProvider = ({
   children,
   id,
 }: ActiveRecipeProviderProps) => {
-  const { activeRecipe } = useActiveRecipe(id);
+  const { activeRecipe, requestStatus } = useActiveRecipe(id);
   return (
     <ActiveRecipeContext.Provider
       value={{
         activeRecipe,
+        requestStatus,
       }}
     >
       {children}

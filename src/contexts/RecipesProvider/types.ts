@@ -1,6 +1,8 @@
 export enum RequestStatus {
   RECIPES_LOADING = 'RECIPES_LOADING',
   RECIPES_SUCCESS = 'RECIPES_SUCCESS',
+  RECIPES_IDLE = 'RECIPES_IDLE',
+  RECIPES_ERROR = 'RECIPES_ERROR',
 }
 
 export type Recipe = {
@@ -52,5 +54,6 @@ export type RecipeResponse = {
 export type RecipesProps = {
   recipes: Recipe[];
   searchedIngredients: string[];
+  getRecipes: (pantryItems: string[]) => void;
   requestStatus: RequestStatus;
 };

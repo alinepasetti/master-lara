@@ -3,7 +3,6 @@ import { ChangeEvent, useState } from 'react';
 const useRecipes = () => {
   const [pantryItems, setPantryItems] = useState<string[]>([]);
   const [searchValue, setSearchValue] = useState('');
-
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const { value } = event.target;
     setSearchValue(value);

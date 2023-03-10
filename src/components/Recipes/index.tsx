@@ -9,8 +9,20 @@ export const Recipes = () => {
   const { recipes, requestStatus } = useContext(RecipesContext);
   return (
     <Styled.Container>
+      {requestStatus === RequestStatus.RECIPES_ERROR && (
+        <Heading>Error loading recipes.</Heading>
+      )}
+
       {requestStatus === RequestStatus.RECIPES_LOADING && (
         <Heading>LOADING...</Heading>
+      )}
+
+      {requestStatus === RequestStatus.RECIPES_IDLE && (
+        <Heading>Waiting for your search, Master 👩‍🍳</Heading>
+      )}
+
+      {requestStatus === RequestStatus.RECIPES_SUCCESS && !recipes.length && (
+        <Heading>Ooops... No recipes found 😢🧆</Heading>
       )}
 
       {requestStatus === RequestStatus.RECIPES_SUCCESS &&

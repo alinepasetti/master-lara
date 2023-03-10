@@ -5,13 +5,22 @@ import { RecipeInfo } from 'components/RecipeInfo';
 import { IngredientsList } from 'components/IngredientsList';
 import { ActiveRecipeContext } from 'contexts/ActiveRecipe/context';
 import { useContext } from 'react';
+import { RequestStatus } from 'contexts/RecipesProvider/types';
 
 function RecipeDetail() {
-  const { activeRecipe } = useContext(ActiveRecipeContext);
+  const { activeRecipe, requestStatus } = useContext(ActiveRecipeContext);
+
   return (
     <>
-      {!activeRecipe && <Heading>LOADING...</Heading>}
-      {activeRecipe && (
+      {requestStatus === RequestStatus.RECIPES_ERROR && (
+        <Heading>Error loading recipe.</Heading>
+      )}
+
+      {(requestStatus === RequestStatus.RECIPES_LOADING ||
+        requestStatus === RequestStatus.RECIPES_IDLE ||
+        !activeRecipe) && <Heading>LOADING...</Heading>}
+
+      {requestStatus === RequestStatus.RECIPES_SUCCESS && (
         <>
           <ImageHeader
             srcImage={activeRecipe.image}

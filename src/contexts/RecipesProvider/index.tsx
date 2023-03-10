@@ -6,13 +6,15 @@ export type RecipesProviderProps = {
 };
 
 export const RecipesProvider = ({ children }: RecipesProviderProps) => {
-  const { requestStatus, recipes, searchedIngredients } = useRecipes();
+  const { requestStatus, recipes, searchedIngredients, getRecipes } =
+    useRecipes();
 
   return (
     <RecipesContext.Provider
       value={{
         recipes,
         searchedIngredients,
+        getRecipes,
         requestStatus,
       }}
     >
