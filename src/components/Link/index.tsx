@@ -1,7 +1,7 @@
 import * as Styled from './styles';
 
 export type LinkProps = {
-  children: string;
+  children: string | React.ReactNode;
   url: string;
 };
 

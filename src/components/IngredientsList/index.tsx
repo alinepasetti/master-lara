@@ -5,6 +5,7 @@ import {
   IngredientLinesChecked,
 } from '../../contexts/ActiveRecipe/types';
 import { buildMessage } from '../../services/recipes';
+import { Whatsapp } from '@styled-icons/boxicons-logos';
 
 export type IngredientsListProps = {
   label: ActiveRecipe['label'];
@@ -27,7 +28,7 @@ export const IngredientsList = ({
         </Styled.ListItem>
       ))}
       <Link url={`https://api.whatsapp.com/send?text=${message}`}>
-        Invite a friend!
+        <Whatsapp /> Invite a friend!
       </Link>
     </Styled.Container>
   );

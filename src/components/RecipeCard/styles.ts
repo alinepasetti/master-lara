@@ -17,7 +17,7 @@ export const Image = styled.img`
   max-width: 100%;
   width: 100%;
   height: 35vh;
-  border-radius: 10px;
+  border-radius: 8px;
   object-fit: cover;
   object-position: center;
 `;

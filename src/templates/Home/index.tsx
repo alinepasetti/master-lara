@@ -1,10 +1,13 @@
-import { Heading } from 'components/Heading';
+import { PantrySection } from 'components/PantrySection';
 import { Recipes } from 'components/Recipes';
+import { PantryProvider } from 'contexts/PantryProvider';
 
 function Home() {
   return (
     <>
-      <Heading>Example</Heading>
+      <PantryProvider>
+        <PantrySection />
+      </PantryProvider>
       <Recipes />
     </>
   );

@@ -8,7 +8,7 @@ const useActiveRecipe = (id: string) => {
   const [activeRecipe, setActiveRecipe] = useState<ActiveRecipe>(null);
   const { recipes, searchedIngredients } = useContext(RecipesContext);
 
-  const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+  // const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
   const findRecipeById = useCallback(
     (id: string) => {
       let filterSearchedRecipes = recipes.find((recipe) => recipe.id === id);
@@ -31,7 +31,7 @@ const useActiveRecipe = (id: string) => {
 
   useEffect(() => {
     async function asyncDelay() {
-      await delay(1000);
+      // await delay(1000);
       if (id) {
         findRecipeById(id);
       }

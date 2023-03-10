@@ -10,11 +10,11 @@ const useRecipes = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [searchedIngredients, setSearchedIngredients] = useState<string[]>([]);
 
-  const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+  // const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
   useEffect(() => {
     async function asyncDelay() {
-      await delay(4000);
+      // await delay(4000);
       const { recipes, searchedIngredients } = parseRecipeResponse(data);
       setRecipes(recipes);
       setSearchedIngredients(searchedIngredients);
