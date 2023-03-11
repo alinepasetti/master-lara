@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import * as Styled from './styles';
-import { PantryContext } from 'contexts/PantryProvider/context';
-import { Button as AddPantryItemButton } from 'components/Button';
+import { PantryContext } from '../../contexts/PantryProvider/context';
+import { Button as AddPantryItemButton } from '../Button';
 import { Add } from '@styled-icons/material-outlined';
 
 export const PantryItemsSearchForm = () => {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button as AddPantryItemButton } from 'components/Button/styles';
+import { Button as AddPantryItemButton } from '../Button/styles';
 
 export const Container = styled.form`
   width: 100%;

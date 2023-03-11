@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button as SearchButton } from 'components/Button/styles';
+import { Button as SearchButton } from '../Button/styles';
 
 export const Container = styled.div`
   width: 100%;

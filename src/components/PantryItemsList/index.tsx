@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import * as Styled from './styles';
-import { PantryContext } from 'contexts/PantryProvider/context';
+import { PantryContext } from '../../contexts/PantryProvider/context';
 import { Close } from '@styled-icons/material-outlined';
 
 export const PantryItemsList = () => {
