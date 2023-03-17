@@ -17,6 +17,13 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${({ theme }) => theme.font.family.default};
   }
 
+  #__next {
+    flex: 1 1 auto;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: ${({ theme }) => theme.font.family.default};
     margin: 0 0;

@@ -28,14 +28,20 @@ const useRecipes = () => {
 
   const getRecipes = useCallback(
     (pantryItems: string[]) => {
-      console.log(
-        'useRecipes > getRecipes callback > button click, page loading',
-      );
-      setRequestStatus(RequestStatus.RECIPES_LOADING);
+      if (pantryItems.length) {
+        console.log(
+          'useRecipes > getRecipes callback > button click, page loading',
+        );
+        setRequestStatus(RequestStatus.RECIPES_LOADING);
 
-      const endPoint = pantryItems.join('%2C');
-      setEndPoint(endPoint);
-      console.log('useRecipes > getRecipes callback > endPoint set!');
+        const endPoint = pantryItems.join('%2C');
+        setEndPoint(endPoint);
+        console.log('useRecipes > getRecipes callback > endPoint set!');
+      } else {
+        console.log(
+          'useRecipes > getRecipes callback > no pantry items inserted!',
+        );
+      }
     },
     [setEndPoint, setRequestStatus],
   );

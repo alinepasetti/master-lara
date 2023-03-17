@@ -13,7 +13,10 @@ export const MyPantryContainer = () => {
     <Styled.Container>
       <Heading>My Pantry</Heading>
       <PantryItemsList />
-      <SearchButton clickHandler={() => getRecipes(pantryItems)}>
+      <SearchButton
+        disabled={!pantryItems.length}
+        clickHandler={() => getRecipes(pantryItems)}
+      >
         Search
       </SearchButton>
     </Styled.Container>

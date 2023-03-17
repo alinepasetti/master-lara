@@ -4,6 +4,7 @@ import { RecipesContext } from '../../contexts/RecipesProvider/context';
 import { RequestStatus } from '../../contexts/RecipesProvider/types';
 import { RecipeCard } from '../RecipeCard';
 import { Heading } from '../Heading';
+import { Heading as Message } from '../Heading';
 
 export const Recipes = () => {
   const { recipes, requestStatus } = useContext(RecipesContext);
@@ -14,15 +15,15 @@ export const Recipes = () => {
       )}
 
       {requestStatus === RequestStatus.RECIPES_LOADING && (
-        <Heading>LOADING...</Heading>
+        <Message>LOADING...</Message>
       )}
 
       {requestStatus === RequestStatus.RECIPES_IDLE && (
-        <Heading>Waiting for your search, Master 👩‍🍳</Heading>
+        <Message>Waiting for your search, Master 👩‍🍳</Message>
       )}
 
       {requestStatus === RequestStatus.RECIPES_SUCCESS && !recipes.length && (
-        <Heading>Ooops... No recipes found 😢🧆</Heading>
+        <Message>Ooops... No recipes found 😢🧆</Message>
       )}
 
       {requestStatus === RequestStatus.RECIPES_SUCCESS &&

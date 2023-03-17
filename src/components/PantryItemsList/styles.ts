@@ -7,9 +7,7 @@ type HasIngredient = {
 export const Container = styled.ul`
   width: 100%;
   min-height: 4.0rem;
-  background: rgba(22, 66, 108, 0.3);
-  border-radius: 8px;
-  padding: 0.8rem;
+  padding: 0 0.8rem;
   margin: 1.6rem 0;
   display: flex;
   justify-content: space-around;
