@@ -4,41 +4,51 @@ import { RequestStatus } from 'contexts/RecipesProvider/types';
 // const isObjectEqual = (objA, objB) => {
 //   return JSON.stringify(objA) === JSON.stringify(objB);
 // };
+export const useMock = true;
+const url = 'https://edamam-recipe-search.p.rapidapi.com/search?q=';
+const options = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': process.env.NEXT_PUBLIC_EDAMAN_API_KEY,
+    'X-RapidAPI-Host': 'edamam-recipe-search.p.rapidapi.com',
+  },
+};
 
-export const useFetch = (instanceName) => {
+export const useFetch = (instanceName: string) => {
   const [requestStatus, setRequestStatus] = useState<RequestStatus>(
     RequestStatus.RECIPES_IDLE,
   );
   const [instance] = useState(instanceName);
   const [result, setResult] = useState(null);
-  const [request, setRequest] = useState<{ url: string; options: object }>(
-    null,
-  );
+  const [endPoint, setEndPoint] = useState<string>('');
 
   useEffect(() => {
-    if (request) {
+    if (endPoint) {
       console.log(
-        `useFetch${instance} > request useEffect > requesting to url`,
-        request.url,
+        `useFetch${instance} > request useEffect > requesting to endPoint`,
+        endPoint,
       );
       let wait = false;
       const controller = new AbortController();
-      // const signal = controller.signal;
+      const signal = controller.signal;
 
       const fetchData = async () => {
-        await new Promise((r) => setTimeout(r, 1000));
-
         try {
-          // const response = await fetch(request.url, {
-          //   signal,
-          //   ...request.options,
-          // });
+          const requestUrl = `${url}${endPoint}`;
+          console.log(
+            `useFetch${instance} > request useEffect > url `,
+            requestUrl,
+          );
+          const response = await fetch(requestUrl, {
+            signal,
+            ...options,
+          });
 
-          // const jsonResult = await response.json();
-          const response = (request.url, request.options).toString();
-
-          const jsonResult = response;
-
+          const jsonResult = await response.json();
+          console.log(
+            `useFetch${instance} > request useEffect > jsonResult`,
+            jsonResult,
+          );
           if (!wait) {
             setResult(jsonResult);
             console.log(
@@ -52,14 +62,20 @@ export const useFetch = (instanceName) => {
           console.log('MY ERROR:', error.message);
         }
       };
-
-      fetchData();
+      if (!useMock) {
+        fetchData();
+      } else {
+        setResult(endPoint);
+        console.log(
+          `useFetch${instance} > request useEffect > mocking request!`,
+        );
+      }
       return () => {
         wait = true;
         controller.abort();
       };
     }
-  }, [request, setRequest, instance]);
+  }, [endPoint, setEndPoint, instance]);
 
-  return { result, setRequest, requestStatus, setRequestStatus };
+  return { result, setEndPoint, requestStatus, setRequestStatus };
 };

@@ -4,23 +4,60 @@ import { data } from 'contexts/RecipesProvider/mockData';
 import { RequestStatus } from 'contexts/RecipesProvider/types';
 import { useEffect, useState, useContext, useCallback, useRef } from 'react';
 import { hasIngredientCheck, parseRecipeResponse } from 'services/recipes';
-import { useFetch } from './useFetch';
+import { useFetch, useMock } from './useFetch';
 
 const useActiveRecipe = (id: string) => {
   const [activeRecipe, setActiveRecipe] = useState<ActiveRecipe>(null);
   const idRef = useRef<string>('');
   const { recipes, searchedIngredients } = useContext(RecipesContext);
-  const { setRequest, result, requestStatus, setRequestStatus } =
-    useFetch('activeRecipe');
+  const { setEndPoint, result, requestStatus, setRequestStatus } =
+    useFetch('ActiveRecipe');
 
-  const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+  const delay = useCallback(
+    async (ms: number) => new Promise((res) => setTimeout(res, ms)),
+    [],
+  );
+
+  const getMockData = useCallback(async () => {
+    console.log('useRecipes > getMock data callback > delay');
+
+    await delay(4000);
+    const { recipes, searchedIngredients } = parseRecipeResponse(data);
+    const activeRecipe = {
+      ...recipes[0],
+      ingredientLines: hasIngredientCheck(
+        recipes[0].ingredientLines,
+        searchedIngredients,
+      ),
+    };
+    setActiveRecipe(activeRecipe);
+    setRequestStatus(RequestStatus.RECIPES_SUCCESS);
+    console.log('useRecipes > getMock data callback > mock data set!');
+  }, [delay, setRequestStatus]);
+
+  const setResult = useCallback(() => {
+    if (useMock) return getMockData();
+
+    console.log('useActiveRecipe > result useEffect > request result changed');
+    const { recipes, searchedIngredients } = parseRecipeResponse(result);
+    const activeRecipe = {
+      ...recipes[0],
+      ingredientLines: hasIngredientCheck(
+        recipes[0].ingredientLines,
+        searchedIngredients,
+      ),
+    };
+    setActiveRecipe(activeRecipe);
+    setRequestStatus(RequestStatus.RECIPES_SUCCESS);
+    console.log(
+      'useActiveRecipe > result useEffect > result set, status set to success!',
+    );
+  }, [setRequestStatus, getMockData, result]);
 
   const findRecipeById = useCallback(
     (id: string) => {
-      const filterSearchedRecipes = recipes.find((recipe) => {
-        console.log('recipes', recipe.id, id);
-        return recipe.id === id;
-      });
+      const filterSearchedRecipes = recipes.find((recipe) => recipe.id === id);
+
       if (filterSearchedRecipes) {
         console.log(
           'useActiveRecipe > findRecipeById > recipe found, setting its value...',
@@ -36,37 +73,20 @@ const useActiveRecipe = (id: string) => {
         setRequestStatus(RequestStatus.RECIPES_SUCCESS);
         console.log('useActiveRecipe > findRecipeById > active recipe set!');
       } else {
-        // MOCK fetch api with ID
         console.log(
           'useActiveRecipe > findRecipeById > new recipe detail, fetching info.',
         );
-        setRequest({ url: 'url', options: {} });
+        setEndPoint(`${id}`);
       }
     },
-    [recipes, searchedIngredients, setRequest, setRequestStatus],
+    [recipes, searchedIngredients, setEndPoint, setRequestStatus],
   );
 
   useEffect(() => {
     if (result) {
-      console.log(
-        'useActiveRecipe > result useEffect > request result changed',
-        result,
-      );
-      const recipe = parseRecipeResponse(data).recipes[1];
-      const activeRecipe = {
-        ...recipe,
-        ingredientLines: hasIngredientCheck(
-          recipe.ingredientLines,
-          searchedIngredients,
-        ),
-      };
-      setActiveRecipe(activeRecipe);
-      setRequestStatus(RequestStatus.RECIPES_SUCCESS);
-      console.log(
-        'useActiveRecipe > result useEffect > result set, status set to success!',
-      );
+      setResult();
     }
-  }, [result, searchedIngredients, setRequestStatus]);
+  }, [result, setResult]);
 
   useEffect(() => {
     const validId = id && idRef.current !== id;
@@ -78,7 +98,6 @@ const useActiveRecipe = (id: string) => {
           'useActiveRecipe > get id useEffect > received id - loading',
           id,
         );
-        await delay(4000);
         findRecipeById(id);
       }
     }

@@ -33,7 +33,7 @@ export const mapRecipes = (
 export const parseRecipeResponse = (
   response: RecipeResponse,
 ): { searchedIngredients: string[]; recipes: Recipe[] } => {
-  const searchedIngredients = response.q.split(', ');
+  const searchedIngredients = response.q.split(',');
   return {
     searchedIngredients,
     recipes: mapRecipes(response.hits, searchedIngredients),

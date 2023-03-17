@@ -12,7 +12,7 @@ const useRecipes = () => {
     if (searchValue.length) {
       setPantryItems((prevPantryItems) => [
         ...prevPantryItems,
-        searchValue.toLowerCase(),
+        searchValue.trim().toLowerCase(),
       ]);
       setSearchValue('');
     }
