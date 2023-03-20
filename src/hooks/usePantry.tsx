@@ -10,11 +10,18 @@ const useRecipes = () => {
 
   const addPantryItem = (): void => {
     if (searchValue.length) {
-      setPantryItems((prevPantryItems) => [
-        ...prevPantryItems,
-        searchValue.trim().toLowerCase(),
-      ]);
-      setSearchValue('');
+      const newPantryItem = searchValue.trim().toLowerCase();
+      if (!pantryItems.includes(newPantryItem)) {
+        setPantryItems((prevPantryItems) => [
+          ...prevPantryItems,
+          newPantryItem,
+        ]);
+        setSearchValue('');
+      } else {
+        alert(
+          'Pantry item is already on the list 🎻\nPlease, try another ingredient.',
+        );
+      }
     }
   };
 

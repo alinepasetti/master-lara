@@ -8,6 +8,9 @@ export const Container = styled.ul`
   padding: 2.4rem;
   padding-top: 0;
   margin: 0;
+  > a {
+    margin-top: 1.6rem;
+  }
 `;
 
 export const ListItem = styled.li<HasIngredient>`${({
