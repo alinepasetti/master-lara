@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 2.4rem;
+  position: relative;
 `;
 
 export const Tag = styled.h3`

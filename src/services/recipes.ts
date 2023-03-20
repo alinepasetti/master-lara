@@ -13,21 +13,25 @@ export const mapRecipes = (
   rawRecipes: RawRecipe[],
   searchedIngredients: string[],
 ): Recipe[] => {
-  return rawRecipes.map((rawRecipe) => {
-    return {
-      id: generateId(rawRecipe.recipe.uri),
-      label: rawRecipe.recipe.label,
-      image: rawRecipe.recipe.image,
-      url: rawRecipe.recipe.url,
-      ingredientLines: rawRecipe.recipe.ingredientLines,
-      totalTime: rawRecipe.recipe.totalTime,
-      cuisineType: capitalizeFirstLetter(rawRecipe.recipe.cuisineType[0]),
-      ingredientRatio:
-        searchedIngredients.length +
-        '/' +
-        rawRecipe.recipe.ingredientLines.length,
-    };
-  });
+  return rawRecipes
+    .map((rawRecipe) => {
+      return {
+        id: generateId(rawRecipe.recipe.uri),
+        label: rawRecipe.recipe.label,
+        image: rawRecipe.recipe.image,
+        url: rawRecipe.recipe.url,
+        ingredientLines: rawRecipe.recipe.ingredientLines,
+        totalTime: rawRecipe.recipe.totalTime,
+        cuisineType: capitalizeFirstLetter(rawRecipe.recipe.cuisineType[0]),
+        ingredientRatio: calculateIngredientsRatio(
+          searchedIngredients.length,
+          rawRecipe.recipe.ingredientLines.length,
+        ),
+      };
+    })
+    .sort((a, b) =>
+      Number(a.ingredientRatio) > Number(b.ingredientRatio) ? -1 : 1,
+    );
 };
 
 export const parseRecipeResponse = (
@@ -70,4 +74,11 @@ export const buildMessage = (
     .map((ingredient) => ingredient.ingredient)
     .join(', ');
   return `Come and cook ${recipeLabel} with me. Just bring: ${missingIngredients}. xoxo`;
+};
+
+const calculateIngredientsRatio = (
+  searchedIngredient: number,
+  recipeIngredients: number,
+): number => {
+  return Math.floor((100 * searchedIngredient) / recipeIngredients);
 };

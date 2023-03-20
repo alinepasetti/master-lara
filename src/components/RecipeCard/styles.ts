@@ -2,10 +2,11 @@ import styled from 'styled-components';
 import { Title as Heading } from '../Heading/styles';
 
 export const Container = styled.a`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 90%;
-  margin: 2em auto;
+  margin: 2em auto 0;
   text-decoration: none;
   ${Heading} {
     font-size: 1.6rem;

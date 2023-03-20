@@ -24,6 +24,6 @@ export const RECIPE_MOCK_DATA = {
   ingredientLines: ['sugar'],
   cuisineType: 'Indian',
   totalTime: 60,
-  ingredientRatio: '1 / 3',
+  ingredientRatio: 30,
   url: 'url.com',
 };

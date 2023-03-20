@@ -6,6 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  padding-bottom: 2.4rem;
   &> ${Message} {
     text-align: center;
     margin: 0 2.4rem;

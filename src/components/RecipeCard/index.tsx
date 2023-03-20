@@ -10,7 +10,7 @@ export type RecipeCardProps = {
   image: string;
   totalTime: number;
   cuisineType: string;
-  ingredientRatio: string;
+  ingredientRatio: number;
 };
 
 export const RecipeCard = ({
@@ -29,8 +29,8 @@ export const RecipeCard = ({
           <Heading>{label}</Heading>
           <Styled.Tag>{cuisineType}</Styled.Tag>
           <Styled.Tag>{secondsToMinutes(totalTime)}</Styled.Tag>
-          <IngredientsRatio ingredientRatio={ingredientRatio} />
         </Styled.ContentContainer>
+        <IngredientsRatio ingredientRatio={ingredientRatio} />
       </Styled.Container>
     </Link>
   );

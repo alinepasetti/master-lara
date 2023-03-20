@@ -1,7 +1,7 @@
 import * as Styled from './styles';
 
 export type IngredientsRatioProps = {
-  ingredientRatio: string;
+  ingredientRatio: number;
 };
 
 export const IngredientsRatio = ({
@@ -10,7 +10,7 @@ export const IngredientsRatio = ({
   return (
     <Styled.Container>
       {ingredientRatio}
-      <span>ingredients</span>
+      <span>%</span>
     </Styled.Container>
   );
 };
