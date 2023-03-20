@@ -3,8 +3,8 @@ import * as Styled from './styles';
 import { RecipesContext } from '../../contexts/RecipesProvider/context';
 import { RequestStatus } from '../../contexts/RecipesProvider/types';
 import { RecipeCard } from '../RecipeCard';
-import { Heading } from '../Heading';
-import { Heading as Message } from '../Heading';
+import Heading from '../Heading';
+import { default as Message } from '../Heading';
 
 export const Recipes = () => {
   const { recipes, requestStatus } = useContext(RecipesContext);

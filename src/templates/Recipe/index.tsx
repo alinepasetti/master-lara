@@ -1,5 +1,5 @@
 import { Link } from 'components/Link';
-import { Heading } from 'components/Heading';
+import Heading from 'components/Heading';
 import { ImageHeader } from 'components/ImageHeader';
 import { RecipeInfo } from 'components/RecipeInfo';
 import { IngredientsList } from 'components/IngredientsList';

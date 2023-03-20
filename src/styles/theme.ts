@@ -5,6 +5,7 @@ export const theme = {
     white: '#FFFFFF',
     green: '#075e54',
     mediumGray: '#5c5c5c',
+    lightGray: '#D3D3D3',
   },
   font: {
     family: {

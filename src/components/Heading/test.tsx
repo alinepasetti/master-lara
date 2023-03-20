@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react';
-import { Heading } from '.';
+import Heading from '../Heading';
 import { renderTheme } from '../../styles/render-theme';
 
 describe('<Heading />', () => {

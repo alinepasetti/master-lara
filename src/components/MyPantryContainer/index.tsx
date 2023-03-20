@@ -3,7 +3,7 @@ import * as Styled from './styles';
 import { PantryContext } from '../../contexts/PantryProvider/context';
 import { Button as SearchButton } from '../Button';
 import { RecipesContext } from '../../contexts/RecipesProvider/context';
-import { Heading } from '../Heading';
+import Heading from '../Heading';
 import { PantryItemsList } from '../PantryItemsList';
 
 export const MyPantryContainer = () => {

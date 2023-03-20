@@ -1,6 +1,6 @@
 import { Recipe } from 'contexts/RecipesProvider/types';
 import * as Styled from './styles';
-import { Heading } from '../Heading';
+import Heading from '../Heading';
 import { secondsToMinutes } from '../../services/utils';
 import { IngredientsRatio } from '../IngredientsRatio';
 

@@ -23,8 +23,8 @@ export const Container = styled.div`${({ theme }) => css`
     cursor: pointer;
 
     &:disabled {
-      color: gray;
-      background-color: ${theme.colors.mediumGray};
+      color: ${theme.colors.mediumGray};
+      background-color: ${theme.colors.lightGray};
       cursor: default;
     }
   }

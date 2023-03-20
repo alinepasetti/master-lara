@@ -1,6 +1,6 @@
 import * as Styled from './styles';
 import { secondsToMinutes } from '../../services/utils';
-import { Heading } from '../Heading';
+import Heading from '../Heading';
 import Link from 'next/link';
 import { IngredientsRatio } from '../IngredientsRatio';
 
