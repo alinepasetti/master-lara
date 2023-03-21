@@ -7,20 +7,20 @@ export const Container = styled.div`${({ theme }) => css`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(22, 66, 108, 0.3);
+  background: ${theme.colors.secondaryColor};
   border-radius: 8px;
   padding: 1.6rem 0;
 
   ${Heading} {
-    color: ${theme.colors.secondaryColor};
-    text-shadow: -1px -1px 1px ${theme.colors.secondaryColor},
-      1px 1px 1px ${theme.colors.mediumGray};
+    font-size: 2.4rem;
+    color: ${theme.colors.primaryColor};
   }
 
   ${SearchButton} {
     border-radius: 8px;
     width: 10.8rem;
     cursor: pointer;
+    background-color: ${theme.colors.primaryColor};
 
     &:disabled {
       color: ${theme.colors.mediumGray};

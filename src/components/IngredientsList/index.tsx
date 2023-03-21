@@ -14,10 +14,12 @@ export const IngredientsList = ({
   return (
     <Styled.Container aria-label="ingredients-list">
       {ingredientLines.map((ingredient) => (
-        <Styled.ListItem
-          hasIngredient={ingredient.hasIngredient}
-          key={ingredient.ingredient}
-        >
+        <Styled.ListItem key={ingredient.ingredient}>
+          {ingredient.hasIngredient ? (
+            <Styled.CheckIcon />
+          ) : (
+            <Styled.UncheckIcon />
+          )}
           {ingredient.ingredient}
         </Styled.ListItem>
       ))}

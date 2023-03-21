@@ -9,12 +9,13 @@ import { RequestStatus } from 'contexts/RecipesProvider/types';
 import * as Styled from './styles';
 import { Whatsapp } from '@styled-icons/boxicons-logos';
 import { buildMessage } from '../../services/recipes';
+import { IngredientsRatio } from 'components/IngredientsRatio';
 
 function RecipeDetail() {
   const { activeRecipe, requestStatus } = useContext(ActiveRecipeContext);
 
   return (
-    <Styled.Wrapper>
+    <>
       {requestStatus === RequestStatus.RECIPES_ERROR && (
         <Heading>Error loading recipe.</Heading>
       )}
@@ -24,32 +25,34 @@ function RecipeDetail() {
         !activeRecipe) && <Heading>LOADING...</Heading>}
 
       {requestStatus === RequestStatus.RECIPES_SUCCESS && (
-        <>
+        <Styled.Container>
           <ImageHeader
             srcImage={activeRecipe.image}
             text={activeRecipe.label}
           />
+          <IngredientsRatio ingredientRatio={activeRecipe.ingredientRatio} />
           <RecipeInfo
             cuisineType={activeRecipe.cuisineType}
             label={activeRecipe.label}
             totalTime={activeRecipe.totalTime}
-            ingredientRatio={activeRecipe.ingredientRatio}
           />
           <IngredientsList
             ingredientLines={activeRecipe.ingredientLines}
             recipeUrl={activeRecipe.url}
           />
-          <WhatsappButton
-            url={`https://api.whatsapp.com/send?text=${buildMessage(
-              activeRecipe.label,
-              activeRecipe.ingredientLines,
-            )}`}
-          >
-            <Whatsapp /> Invite a friend!
-          </WhatsappButton>
-        </>
+          <Styled.ButtonWrapper>
+            <WhatsappButton
+              url={`https://api.whatsapp.com/send?text=${buildMessage(
+                activeRecipe.label,
+                activeRecipe.ingredientLines,
+              )}`}
+            >
+              <Whatsapp /> Invite a friend!
+            </WhatsappButton>
+          </Styled.ButtonWrapper>
+        </Styled.Container>
       )}
-    </Styled.Wrapper>
+    </>
   );
 }
 

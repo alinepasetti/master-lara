@@ -11,6 +11,5 @@ export const Container = styled.p`${({ theme }) => css`
   right: 1.6rem;
   top: 1.6rem;
   border-radius: 8px;
-  box-shadow: 0 0 5px ${theme.colors.mediumGray};
   padding: 1rem;
 `}`;

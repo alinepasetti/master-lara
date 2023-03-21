@@ -27,8 +27,13 @@ export const Recipes = () => {
       )}
 
       {requestStatus === RequestStatus.RECIPES_SUCCESS &&
-        recipes.map((recipe) => {
-          return <RecipeCard key={recipe.label} {...recipe} />;
+        recipes.map((recipe, i) => {
+          return (
+            <>
+              <RecipeCard key={recipe.label} {...recipe} />
+              {recipes[i + 1] && <Styled.Divider />}
+            </>
+          );
         })}
     </Styled.Container>
   );

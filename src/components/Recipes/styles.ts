@@ -10,4 +10,12 @@ export const Container = styled.div`
   &> ${Message} {
     text-align: center;
     margin: 0 2.4rem;
+  }
+`;
+
+export const Divider = styled.hr`
+  border: 0;
+  border-bottom: 1px solid #c6c9cd;
+  margin: 2.4rem auto 0 auto;
+  width: 89%;
 `;
