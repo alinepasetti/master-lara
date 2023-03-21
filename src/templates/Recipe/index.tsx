@@ -10,6 +10,7 @@ import * as Styled from './styles';
 import { Whatsapp } from '@styled-icons/boxicons-logos';
 import { buildMessage } from '../../services/recipes';
 import { IngredientsRatio } from 'components/IngredientsRatio';
+import { BackButton } from 'components/BackButton';
 
 function RecipeDetail() {
   const { activeRecipe, requestStatus } = useContext(ActiveRecipeContext);
@@ -30,6 +31,7 @@ function RecipeDetail() {
             srcImage={activeRecipe.image}
             text={activeRecipe.label}
           />
+          <BackButton />
           <IngredientsRatio ingredientRatio={activeRecipe.ingredientRatio} />
           <RecipeInfo
             cuisineType={activeRecipe.cuisineType}
