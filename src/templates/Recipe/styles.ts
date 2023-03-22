@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  `;
+`;
 
 export const ButtonWrapper = styled.div`
   background-color: white;
