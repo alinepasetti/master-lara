@@ -1,0 +1,23 @@
+// Vitest Snapshot v1
+
+exports[`<Button /> > should match snapshot 1`] = `
+.c0 {
+  padding: 1.6rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: #16426cff;
+  color: #FFFFFF;
+  border: none;
+  margin: 0 auto;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+}
+
+<button
+  class="c0"
+>
+  Example
+</button>
+`;

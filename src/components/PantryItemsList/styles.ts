@@ -5,21 +5,21 @@ type HasIngredient = {
 };
 
 export const Container = styled.ul`
+  height: 100%;
   width: 100%;
   min-height: 4.0rem;
-  background: rgba(22, 66, 108, 0.3);
-  border-radius: 8px;
-  padding: 0.8rem;
+  padding: 0 0.8rem;
   margin: 1.6rem 0;
   display: flex;
   justify-content: space-around;
+  flex: 1;
   flex-wrap: wrap;
   list-style: none;
 `;
 
 export const PantryItem = styled.li<HasIngredient>`${({ theme }) => css`
-  color: ${theme.colors.white};
-  background-color: ${theme.colors.mediumGray};
+  color: ${theme.colors.primaryColor};
+  background-color: ${theme.colors.white};
   padding: 1.25rem;
   width: 47%;
   border-radius: 8px;
@@ -38,5 +38,5 @@ export const Message = styled.p`${({ theme }) => css`
   width: 100%;
   text-align: center;
   margin: 0.8rem 0;
-  color: ${theme.colors.secondaryColor};
+  color: ${theme.colors.primaryColor};
 `}`;

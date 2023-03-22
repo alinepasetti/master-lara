@@ -1,4 +1,4 @@
-import { Recipe } from 'contexts/RecipesProvider/types';
+import { Recipe, RequestStatus } from 'contexts/RecipesProvider/types';
 
 export type IngredientLinesChecked = {
   ingredient: string;
@@ -11,4 +11,5 @@ export type ActiveRecipe = Omit<Recipe, 'ingredientLines'> & {
 
 export type ActiveRecipeProps = {
   activeRecipe: ActiveRecipe;
+  requestStatus: RequestStatus;
 };

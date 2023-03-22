@@ -1,7 +1,7 @@
 import { RecipeResponse } from './types';
 
 export const data: RecipeResponse = {
-  q: 'chicken, banana, onion',
+  q: 'chicken,banana,onion',
   from: 0,
   to: 10,
   more: true,

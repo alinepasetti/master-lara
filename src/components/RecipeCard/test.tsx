@@ -1,17 +1,7 @@
 import { screen } from '@testing-library/react';
 import { RecipeCard } from '.';
 import { renderTheme } from '../../styles/render-theme';
-
-export const RECIPE_MOCK_DATA = {
-  id: 'id',
-  label: 'Sweet Sugar',
-  image: 'image.jpg',
-  ingredientLines: ['sugar'],
-  cuisineType: 'Indian',
-  totalTime: 60,
-  ingredientRatio: '1 / 3',
-  url: 'url.com',
-};
+import { RECIPE_MOCK_DATA } from '../../mocks/recipes';
 
 describe('<RecipeCard />', () => {
   it('should render the recipe card items', () => {

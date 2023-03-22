@@ -1,6 +1,8 @@
 export enum RequestStatus {
   RECIPES_LOADING = 'RECIPES_LOADING',
   RECIPES_SUCCESS = 'RECIPES_SUCCESS',
+  RECIPES_IDLE = 'RECIPES_IDLE',
+  RECIPES_ERROR = 'RECIPES_ERROR',
 }
 
 export type Recipe = {
@@ -11,7 +13,7 @@ export type Recipe = {
   ingredientLines: string[];
   totalTime: number;
   cuisineType: string;
-  ingredientRatio: string;
+  ingredientRatio: number;
 };
 
 export type RawRecipe = {
@@ -52,5 +54,6 @@ export type RecipeResponse = {
 export type RecipesProps = {
   recipes: Recipe[];
   searchedIngredients: string[];
+  getRecipes: (pantryItems: string[]) => void;
   requestStatus: RequestStatus;
 };

@@ -3,7 +3,6 @@ import { ChangeEvent, useState } from 'react';
 const useRecipes = () => {
   const [pantryItems, setPantryItems] = useState<string[]>([]);
   const [searchValue, setSearchValue] = useState('');
-
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const { value } = event.target;
     setSearchValue(value);
@@ -11,11 +10,18 @@ const useRecipes = () => {
 
   const addPantryItem = (): void => {
     if (searchValue.length) {
-      setPantryItems((prevPantryItems) => [
-        ...prevPantryItems,
-        searchValue.toLowerCase(),
-      ]);
-      setSearchValue('');
+      const newPantryItem = searchValue.trim().toLowerCase();
+      if (!pantryItems.includes(newPantryItem)) {
+        setPantryItems((prevPantryItems) => [
+          ...prevPantryItems,
+          newPantryItem,
+        ]);
+        setSearchValue('');
+      } else {
+        alert(
+          'Pantry item is already on the list 🎻\nPlease, try another ingredient.',
+        );
+      }
     }
   };
 

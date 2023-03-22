@@ -2,13 +2,15 @@ import styled from 'styled-components';
 import { Title as Heading } from '../Heading/styles';
 
 export const Container = styled.a`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 90%;
-  margin: 2em auto;
+  margin: 2em auto 0;
   text-decoration: none;
   ${Heading} {
-    font-size: 1.6rem;
+    color: ${({ theme }) => theme.colors.secondaryColor};
+    font-size: 2rem;
     margin: 0 0;
   }
 `;
@@ -33,4 +35,9 @@ export const Tag = styled.h3`
   margin: 0 0;
   color: ${({ theme }) => theme.colors.mediumGray};
   font-weight: 400;
+  display: flex;
+  align-items: center;
+  &> svg {
+    margin-right: 0.5rem;
+  }
 `;

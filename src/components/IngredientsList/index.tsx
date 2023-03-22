@@ -1,35 +1,29 @@
-import { Link } from '../Link';
 import * as Styled from './styles';
-import {
-  ActiveRecipe,
-  IngredientLinesChecked,
-} from '../../contexts/ActiveRecipe/types';
-import { buildMessage } from '../../services/recipes';
-import { Whatsapp } from '@styled-icons/boxicons-logos';
+import { IngredientLinesChecked } from '../../contexts/ActiveRecipe/types';
+import { Link } from 'components/Link';
 
 export type IngredientsListProps = {
-  label: ActiveRecipe['label'];
   ingredientLines: IngredientLinesChecked[];
+  recipeUrl: string;
 };
 
 export const IngredientsList = ({
   ingredientLines,
-  label,
+  recipeUrl,
 }: IngredientsListProps) => {
-  const message = buildMessage(label, ingredientLines);
   return (
     <Styled.Container aria-label="ingredients-list">
       {ingredientLines.map((ingredient) => (
-        <Styled.ListItem
-          hasIngredient={ingredient.hasIngredient}
-          key={ingredient.ingredient}
-        >
+        <Styled.ListItem key={ingredient.ingredient}>
+          {ingredient.hasIngredient ? (
+            <Styled.CheckIcon />
+          ) : (
+            <Styled.UncheckIcon />
+          )}
           {ingredient.ingredient}
         </Styled.ListItem>
       ))}
-      <Link url={`https://api.whatsapp.com/send?text=${message}`}>
-        <Whatsapp /> Invite a friend!
-      </Link>
+      <Link url={recipeUrl}>See more</Link>
     </Styled.Container>
   );
 };

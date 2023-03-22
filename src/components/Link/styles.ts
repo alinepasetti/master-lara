@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Link = styled.a` ${({ theme }) => css`
+export const Link = styled.a`${({ theme }) => css`
   width: 90%;
   display: block;
   padding: 1.6rem;
@@ -8,7 +8,7 @@ export const Link = styled.a` ${({ theme }) => css`
   background: ${theme.colors.primaryColor};
   color: ${theme.colors.white};
   border: none;
-  margin: 0 auto 2.4rem;
+  margin: 0 auto;
   text-align: center;
   text-decoration: none;
 `}`;

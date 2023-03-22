@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 2.4rem;
+  position: relative;
 `;
 
 export const Tag = styled.h3`
@@ -9,6 +10,11 @@ export const Tag = styled.h3`
   margin: 0 0;
   color: ${({ theme }) => theme.colors.mediumGray};
   font-weight: 400;
+  display: flex;
+  align-items: center;
+  &> svg {
+    margin-right: 0.5rem;
+  }
   `;
 
 export const Divider = styled.hr`
