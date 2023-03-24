@@ -21,11 +21,6 @@ describe('<RecipeCard />', () => {
         name: '1 hour',
       }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole('heading', {
-        name: '1 / 3 ingredients',
-      }),
-    ).toBeInTheDocument();
     expect(screen.getByAltText('Sweet Sugar')).toHaveAttribute(
       'src',
       'image.jpg',

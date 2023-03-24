@@ -7,5 +7,9 @@ export const BackButton = () => {
     window.history.state && window.history.state.idx > 0
       ? () => router.back()
       : () => router.push('/');
-  return <Styled.Back onClick={getBack}>BiArrowBack</Styled.Back>;
+  return (
+    <Styled.Back data-testid="back" onClick={getBack}>
+      BiArrowBack
+    </Styled.Back>
+  );
 };

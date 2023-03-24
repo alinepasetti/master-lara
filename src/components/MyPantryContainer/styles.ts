@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Button as SearchButton } from '../Button/styles';
-import { Title as Heading } from 'components/Heading/styles';
+import { Title as Heading } from '../Heading/styles';
 
 export const Container = styled.div`${({ theme }) => css`
   width: 100%;

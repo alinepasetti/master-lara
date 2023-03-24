@@ -1,6 +1,6 @@
 import * as Styled from './styles';
 import { IngredientLinesChecked } from '../../contexts/ActiveRecipe/types';
-import { Link } from 'components/Link';
+import { Link } from '../Link';
 
 export type IngredientsListProps = {
   ingredientLines: IngredientLinesChecked[];

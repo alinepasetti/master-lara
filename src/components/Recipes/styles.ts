@@ -1,4 +1,4 @@
-import { Title as Message } from 'components/Heading/styles';
+import { Title as Message } from '../Heading/styles';
 import styled from 'styled-components';
 
 export const Container = styled.div`
