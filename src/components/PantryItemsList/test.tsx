@@ -56,6 +56,7 @@ describe('<PantryItemsList />', () => {
         removePantryItemMock,
       ),
     );
+
     const closeIcon = screen.getByText('sugar').lastElementChild;
 
     userEvent.click(closeIcon);

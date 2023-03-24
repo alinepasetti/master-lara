@@ -4,15 +4,13 @@ import { renderTheme } from '../../styles/render-theme';
 
 describe('<IngredientsRatio />', () => {
   it('should render a heading', () => {
-    renderTheme(<IngredientsRatio ingredientRatio="1 / 3" />);
-    const heading = screen.getByRole('heading', { name: '1 / 3 ingredients' });
+    renderTheme(<IngredientsRatio ingredientRatio={30} />);
+    const heading = screen.getByText('30');
     expect(heading).toBeInTheDocument();
   });
 
   it('should match snapshot', () => {
-    renderTheme(<IngredientsRatio ingredientRatio="1 / 3" />);
-    expect(
-      screen.getByRole('heading', { name: '1 / 3 ingredients' }),
-    ).toMatchSnapshot();
+    renderTheme(<IngredientsRatio ingredientRatio={30} />);
+    expect(screen.getByText('30')).toMatchSnapshot();
   });
 });

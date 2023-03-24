@@ -30,7 +30,7 @@ export const Recipes = () => {
         recipes.map((recipe, i) => {
           return (
             <>
-              <RecipeCard key={recipe.label} {...recipe} />
+              <RecipeCard key={recipe.id} {...recipe} />
               {recipes[i + 1] && <Styled.Divider />}
             </>
           );

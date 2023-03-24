@@ -7,7 +7,7 @@ describe('<IngredientsList />', () => {
     renderTheme(
       <IngredientsList
         ingredientLines={[{ ingredient: 'sugar', hasIngredient: true }]}
-        label="sweet chilli"
+        recipeUrl="url.com"
       />,
     );
     const list = screen.getByRole('list', {
@@ -26,7 +26,7 @@ describe('<IngredientsList />', () => {
           { ingredient: 'sugar', hasIngredient: true },
           { ingredient: 'cane', hasIngredient: false },
         ]}
-        label="sweet chilli"
+        recipeUrl="url.com"
       />,
     );
     const list = screen.getByRole('list', {
@@ -46,7 +46,7 @@ describe('<IngredientsList />', () => {
           { ingredient: 'sugar', hasIngredient: true },
           { ingredient: 'pepper', hasIngredient: true },
         ]}
-        label="sweet chilli"
+        recipeUrl="url.com"
       />,
     );
     expect(

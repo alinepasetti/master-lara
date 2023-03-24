@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 import { RequestStatus } from 'contexts/RecipesProvider/types';
 
-// const isObjectEqual = (objA, objB) => {
-//   return JSON.stringify(objA) === JSON.stringify(objB);
-// };
 export const useMock = false;
 const url = 'https://edamam-recipe-search.p.rapidapi.com/search?q=';
 const options = {
