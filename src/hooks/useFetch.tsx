@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { RequestStatus } from 'contexts/RecipesProvider/types';
 
-export const useMock = true;
+export const useMock = false;
 const url = 'https://edamam-recipe-search.p.rapidapi.com/search?q=';
 const options = {
   method: 'GET',
