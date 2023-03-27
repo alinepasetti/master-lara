@@ -17,10 +17,7 @@ export const PantryItemsSearchForm = () => {
           onChange={(event) => handleChange(event)}
         />
       </Styled.InputWrapper>
-      <AddPantryItemButton
-        touchStartHandler={(event) => event.preventDefault()}
-        clickHandler={addPantryItem}
-      >
+      <AddPantryItemButton clickHandler={addPantryItem}>
         <Add />
       </AddPantryItemButton>
     </Styled.Container>
