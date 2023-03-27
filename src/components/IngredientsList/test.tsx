@@ -10,6 +10,7 @@ describe('<IngredientsList />', () => {
         recipeUrl="url.com"
       />,
     );
+
     const list = screen.getByRole('list', {
       name: /ingredients/i,
     });
