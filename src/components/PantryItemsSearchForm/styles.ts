@@ -19,30 +19,40 @@ export const Container = styled.form`
     transform: translateY(-50%);
   }
 `;
-export const Input = styled.input`
+export const InputWrapper = styled.div`
   width: 100%;
   background: white;
   box-shadow: 0 0 5px hsl(0 0% 78%);
   height: 55px;
   border-radius: 100vw;
   padding: 0.8rem 1.5rem;
-  &:hover::before{
-  background:transparent;
-}
-  &:hover{
-    background:hsl(0 0% 94%);
+  transition: background 250ms ease;
+
+  &:hover {
+    background: hsl(0 0% 94%);
+  }
+`;
+
+export const Input = styled.input`
+  width: 100%;
+  font-size: 1.6rem;
+  height: 100%;
+
+  &::placeholder {
+    font-size: 1.6rem;
   }
 
-  &[type="text"]{
-    background:none;
-    border:none;
+  &:hover::before {
+    background: transparent;
   }
 
-  &[type="text"]:focus{
+  &[type="text"] {
+    background: none;
+    border: none;
+    padding: 0.2rem 0 0 0;
+  }
+
+  &[type="text"]:focus {
     outline:none;
-  }
-
-  &::placeholder{
-    font-size:1.4rem;
   }
 `;
