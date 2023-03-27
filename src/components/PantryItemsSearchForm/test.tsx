@@ -26,8 +26,9 @@ describe('<PantryItemsSearchForm />', () => {
     expect(screen.getByRole('textbox')).toBeInTheDocument();
     expect(screen.getByRole('button')).toBeInTheDocument();
     expect(
-      screen.getByRole('textbox').parentElement.nodeName.toLowerCase(),
+      screen
+        .getByRole('textbox')
+        .parentElement.parentElement.nodeName.toLowerCase(),
     ).toBe('form');
-    console.log(screen.getByRole('textbox').parentElement.nodeName);
   });
 });

@@ -28,7 +28,9 @@ describe('<PantrySection />', () => {
   it('should render a form and a list', () => {
     renderTheme(PantrySectionElement());
     expect(
-      screen.getByRole('textbox').parentElement.nodeName.toLowerCase(),
+      screen
+        .getByRole('textbox')
+        .parentElement.parentElement.nodeName.toLowerCase(),
     ).toBe('form');
     expect(screen.getByRole('list')).toBeInTheDocument();
   });
