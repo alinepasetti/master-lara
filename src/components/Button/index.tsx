@@ -16,6 +16,8 @@ export const Button = ({
   return (
     <Styled.Button
       onTouchStart={touchStartHandler}
+      onTouchEnd={touchStartHandler}
+      onTouchMove={touchStartHandler}
       onClick={() => clickHandler()}
       disabled={disabled}
     >
