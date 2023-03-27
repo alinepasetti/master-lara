@@ -8,8 +8,9 @@ const useRecipes = () => {
     setSearchValue(value);
   };
 
-  const addPantryItem = (): void => {
+  const addPantryItem = (event): void => {
     if (searchValue.length) {
+      event.preventDefault();
       const newPantryItem = searchValue.trim().toLowerCase();
       if (!pantryItems.includes(newPantryItem)) {
         setPantryItems((prevPantryItems) => [

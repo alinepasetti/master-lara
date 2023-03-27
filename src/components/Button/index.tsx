@@ -2,7 +2,7 @@ import * as Styled from './styles';
 
 export type ButtonProps = {
   children: React.ReactNode | string;
-  clickHandler: () => void;
+  clickHandler: (event) => void;
   disabled?: boolean;
 };
 
@@ -12,7 +12,7 @@ export const Button = ({
   disabled = false,
 }: ButtonProps) => {
   return (
-    <Styled.Button onClick={() => clickHandler()} disabled={disabled}>
+    <Styled.Button onClick={(event) => clickHandler(event)} disabled={disabled}>
       {children}
     </Styled.Button>
   );
