@@ -32,12 +32,18 @@ const useRecipes = () => {
     setPantryItems(clearPantry);
   };
 
+  const resetState = () => {
+    setPantryItems([]);
+    setSearchValue('');
+  };
+
   return {
     pantryItems,
     addPantryItem,
     removePantryItem,
     searchValue,
     handleChange,
+    resetState,
   };
 };
 

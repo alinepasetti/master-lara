@@ -6,8 +6,8 @@ import { PantryProvider } from 'contexts/PantryProvider';
 function Home() {
   return (
     <>
-      <NavBar />
       <PantryProvider>
+        <NavBar />
         <PantrySection />
       </PantryProvider>
       <Recipes />

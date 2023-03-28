@@ -11,5 +11,6 @@ export const buildPantryProviderValueMock = (
     removePantryItem,
     addPantryItem: vi.fn(),
     handleChange: vi.fn(),
+    resetState: vi.fn(),
   };
 };

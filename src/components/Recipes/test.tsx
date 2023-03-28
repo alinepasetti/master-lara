@@ -42,6 +42,7 @@ describe('<Recipes />', () => {
           searchedIngredients: [],
           requestStatus: RequestStatus.RECIPES_SUCCESS,
           getRecipes: () => 'oi',
+          resetState: () => 'oi',
         }}
       >
         <Recipes />

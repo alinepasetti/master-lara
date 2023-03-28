@@ -66,6 +66,12 @@ const useRecipes = () => {
     getMockData,
   ]);
 
+  const resetState = () => {
+    setRequestStatus(RequestStatus.RECIPES_IDLE);
+    setRecipes([]);
+    setSearchedIngredients([]);
+  };
+
   useEffect(() => {
     if (result) {
       setResult();
@@ -78,6 +84,7 @@ const useRecipes = () => {
     searchedIngredients,
     setRequestStatus,
     getRecipes,
+    resetState,
   };
 };
 

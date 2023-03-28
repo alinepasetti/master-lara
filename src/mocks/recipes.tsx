@@ -14,6 +14,7 @@ export const buildRecipesProviderValueMock = (
     requestStatus,
     searchedIngredients: [],
     getRecipes: vi.fn(),
+    resetState: vi.fn(),
   };
 };
 
