@@ -12,7 +12,6 @@ export const Container = styled.a`
   @media screen and (min-width: 768px) {
     margin: 2em 0;
     width: 47%;
-
   }
 
   @media screen and (min-width: 1042px) {

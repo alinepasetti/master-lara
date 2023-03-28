@@ -28,8 +28,17 @@ export const PantryItem = styled.li<HasIngredient>`${({ theme }) => css`
     display: flex;
     justify-content: space-between;
   }
+
   & > span > svg {
     width: 2.5rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 31.5%;
+  }
+
+  @media screen and (min-width: 1164px) {
+    width: 23%;
   }
 `}`;
 
