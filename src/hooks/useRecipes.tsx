@@ -1,7 +1,7 @@
 import { data } from 'contexts/RecipesProvider/mockData';
 import { RequestStatus, Recipe } from 'contexts/RecipesProvider/types';
 import { useState, useCallback, useEffect } from 'react';
-import { parseRecipeResponse } from 'services/recipes';
+import { sameSearchedIngredients, parseRecipeResponse } from 'services/recipes';
 import { useFetch, useMock } from './useFetch';
 
 const useRecipes = () => {
@@ -32,6 +32,11 @@ const useRecipes = () => {
         console.log(
           'useRecipes > getRecipes callback > button click, page loading',
         );
+
+        if (sameSearchedIngredients(searchedIngredients, pantryItems)) {
+          return setRecipes(recipes);
+        }
+
         setRequestStatus(RequestStatus.RECIPES_LOADING);
 
         const endPoint = pantryItems.join('%2C');
@@ -43,7 +48,7 @@ const useRecipes = () => {
         );
       }
     },
-    [setEndPoint, setRequestStatus],
+    [setEndPoint, setRequestStatus, searchedIngredients, recipes, setRecipes],
   );
 
   const setResult = useCallback(() => {

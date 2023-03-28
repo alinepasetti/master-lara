@@ -82,3 +82,7 @@ const calculateIngredientsRatio = (
 ): number => {
   return Math.floor((100 * searchedIngredient) / recipeIngredients);
 };
+
+export const sameSearchedIngredients = (a: string[], b: string[]): boolean =>
+  a.length === b.sort().length &&
+  a.sort().every((element, index) => element === b[index]);

@@ -13,12 +13,16 @@ export const Container = styled.div`
     width: 90%;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
   }
 
   &> ${Message} {
     text-align: center;
     margin: 0 2.4rem;
+    @media screen and (min-width: 768px) {
+      margin: 0 auto;
+    }
   }
 `;
 
