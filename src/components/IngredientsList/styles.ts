@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { AiFillCheckCircle } from 'react-icons/ai';
+import { Link } from '../Link/styles';
 
 type HasIngredient = {
   hasIngredient: boolean;
@@ -24,6 +25,10 @@ export const Container = styled.ul`
   &> a {
     margin-top: 1.6rem;
   }
+
+  ${Link} {
+    max-width: 30rem;
+  }
 `;
 
 export const ListItem = styled.li<HasIngredient>`${({
@@ -37,7 +42,7 @@ export const ListItem = styled.li<HasIngredient>`${({
     content: ${hasIngredient ? checkIconUrl(theme) : uncheckIconUrl(theme)};
     width: 1.8rem;
     padding-right: 1rem;
-}
+  }
 `}`;
 
 export const CheckIcon = styled(AiFillCheckCircle)`${({ theme }) => css`

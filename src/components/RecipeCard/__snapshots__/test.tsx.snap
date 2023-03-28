@@ -69,6 +69,20 @@ exports[`<RecipeCard /> > should match snapshot 1`] = `
   padding: 1rem;
 }
 
+@media screen and (min-width:768px) {
+  .c0 {
+    margin: 2em 0;
+    width: 47%;
+  }
+}
+
+@media screen and (min-width:1042px) {
+  .c0 {
+    margin: 2em 0;
+    width: 31.5%;
+  }
+}
+
 <a
   class="c0"
   href="/recipe/id"

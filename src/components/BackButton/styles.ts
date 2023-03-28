@@ -12,4 +12,5 @@ export const Back = styled(BiArrowBack)`${({ theme }) => css`
   position: absolute;
   left: 1.6rem;
   top: 1.6rem;
+  cursor: pointer;
 `}`;

@@ -1,28 +1,7 @@
 // Vitest Snapshot v1
 
 exports[`<IngredientsList /> > should match snapshot 1`] = `
-.c0 {
-  padding: 2.4rem;
-  padding-top: 0;
-  margin: 0;
-}
-
-.c0> a {
-  margin-top: 1.6rem;
-}
-
-.c1 {
-  list-style: none;
-}
-
-.c1::before {
-  display: inline-block;
-  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23075e54' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z' /%3E%3C/svg%3E%0A");
-  width: 1.8rem;
-  padding-right: 1rem;
-}
-
-.c2 {
+.c3 {
   width: 90%;
   display: block;
   padding: 1.6rem;
@@ -34,6 +13,31 @@ exports[`<IngredientsList /> > should match snapshot 1`] = `
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
+}
+
+.c0 {
+  padding: 2.4rem;
+  padding-top: 0;
+  margin: 0;
+}
+
+.c0> a {
+  margin-top: 1.6rem;
+}
+
+.c0 .c2 {
+  max-width: 30rem;
+}
+
+.c1 {
+  list-style: none;
+}
+
+.c1::before {
+  display: inline-block;
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23075e54' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z' /%3E%3C/svg%3E%0A");
+  width: 1.8rem;
+  padding-right: 1rem;
 }
 
 <ul
@@ -51,7 +55,7 @@ exports[`<IngredientsList /> > should match snapshot 1`] = `
     pepper
   </li>
   <a
-    class="c2"
+    class="c2 c3"
     href="url.com"
     target="_blank"
   >
