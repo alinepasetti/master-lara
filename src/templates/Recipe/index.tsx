@@ -18,7 +18,7 @@ function RecipeDetail() {
   return (
     <>
       {requestStatus === RequestStatus.RECIPES_ERROR && (
-        <Heading>Error loading recipe.</Heading>
+        <Heading>The chef overcooked it. 🔥 Try again. 🧆</Heading>
       )}
 
       {(requestStatus === RequestStatus.RECIPES_LOADING ||
