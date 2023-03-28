@@ -6,5 +6,5 @@ export type ImageHeaderProps = {
 };
 
 export const ImageHeader = ({ srcImage, text }: ImageHeaderProps) => {
-  return <Styled.Container src={srcImage} alt={text} />;
+  return <Styled.Image src={srcImage} alt={text} />;
 };

@@ -56,4 +56,5 @@ export type RecipesProps = {
   searchedIngredients: string[];
   getRecipes: (pantryItems: string[]) => void;
   requestStatus: RequestStatus;
+  resetState: () => void;
 };

@@ -1,4 +1,8 @@
-import { buildMessage, hasIngredientCheck } from './recipes';
+import {
+  buildMessage,
+  sameSearchedIngredients,
+  hasIngredientCheck,
+} from './recipes';
 import { data } from '../contexts/RecipesProvider/mockData';
 
 describe('hasIngredientCheck', () => {
@@ -38,5 +42,40 @@ describe('buildMessage', () => {
     expect(buildMessage(RECIPE_MOCK.label, ingredientLines)).toEqual(
       `Come and cook ${RECIPE_MOCK.label} with me. Just bring: ${missingIngredients}. xoxo`,
     );
+  });
+});
+
+describe('sameSearchedIngredients', () => {
+  it('should return true when all searched ingredients are the same', () => {
+    const SEARCHED_INGREDIENTS_MOCK = ['banana', 'orange'];
+    const PANTRY_ITEMS_MOCK = ['orange', 'banana'];
+    const sameIngredients = sameSearchedIngredients(
+      PANTRY_ITEMS_MOCK,
+      SEARCHED_INGREDIENTS_MOCK,
+    );
+
+    expect(sameIngredients).toBeTruthy();
+  });
+
+  it('should return false when searched ingredients are not the same', () => {
+    const SEARCHED_INGREDIENTS_MOCK = ['banana', 'orange'];
+    const PANTRY_ITEMS_MOCK = ['orange', 'strawberry'];
+    const sameIngredients = sameSearchedIngredients(
+      PANTRY_ITEMS_MOCK,
+      SEARCHED_INGREDIENTS_MOCK,
+    );
+
+    expect(sameIngredients).toBeFalsy();
+  });
+
+  it('should return false when missing some searched ingredients', () => {
+    const SEARCHED_INGREDIENTS_MOCK = ['banana', 'orange'];
+    const PANTRY_ITEMS_MOCK = ['orange', 'banana', 'strawberry'];
+    const sameIngredients = sameSearchedIngredients(
+      PANTRY_ITEMS_MOCK,
+      SEARCHED_INGREDIENTS_MOCK,
+    );
+
+    expect(sameIngredients).toBeFalsy();
   });
 });

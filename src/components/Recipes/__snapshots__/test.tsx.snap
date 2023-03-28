@@ -2,6 +2,7 @@
 
 exports[`<Recipes /> > should match snapshot 1`] = `
 .c0 {
+  width: 100%;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -92,6 +93,50 @@ exports[`<Recipes /> > should match snapshot 1`] = `
   top: 1.6rem;
   border-radius: 8px;
   padding: 1rem;
+}
+
+@media screen and (min-width:768px) {
+  .c0 {
+    width: 90%;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:768px) {
+  .c6 {
+    display: none;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .c1 {
+    margin: 2em 0;
+    width: 47%;
+  }
+}
+
+@media screen and (min-width:1042px) {
+  .c1 {
+    margin: 2em 0;
+    width: 31.5%;
+  }
 }
 
 <div

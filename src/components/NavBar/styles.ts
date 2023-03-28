@@ -10,4 +10,5 @@ export const Image = styled.img`
   width: 20%;
   display: block;
   margin: 0 auto;
+  cursor: pointer;
 `;

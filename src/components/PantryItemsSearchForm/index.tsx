@@ -9,12 +9,14 @@ export const PantryItemsSearchForm = () => {
     useContext(PantryContext);
   return (
     <Styled.Container onSubmit={(event) => event.preventDefault()}>
-      <Styled.Input
-        type="text"
-        placeholder="What's in your pantry?"
-        value={searchValue}
-        onChange={(event) => handleChange(event)}
-      />
+      <Styled.InputWrapper>
+        <Styled.Input
+          type="text"
+          placeholder="What's in your pantry?"
+          value={searchValue}
+          onChange={(event) => handleChange(event)}
+        />
+      </Styled.InputWrapper>
       <AddPantryItemButton clickHandler={addPantryItem}>
         <Add />
       </AddPantryItemButton>

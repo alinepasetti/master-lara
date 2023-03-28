@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 
-const useRecipes = () => {
+const usePantry = () => {
   const [pantryItems, setPantryItems] = useState<string[]>([]);
   const [searchValue, setSearchValue] = useState('');
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -32,13 +32,19 @@ const useRecipes = () => {
     setPantryItems(clearPantry);
   };
 
+  const resetState = () => {
+    setPantryItems([]);
+    setSearchValue('');
+  };
+
   return {
     pantryItems,
     addPantryItem,
     removePantryItem,
     searchValue,
     handleChange,
+    resetState,
   };
 };
 
-export default useRecipes;
+export default usePantry;

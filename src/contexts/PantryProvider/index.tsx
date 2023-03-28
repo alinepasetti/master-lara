@@ -12,6 +12,7 @@ export const PantryProvider = ({ children }: PantryProviderProps) => {
     removePantryItem,
     searchValue,
     handleChange,
+    resetState,
   } = usePantry();
   return (
     <PantryContext.Provider
@@ -21,6 +22,7 @@ export const PantryProvider = ({ children }: PantryProviderProps) => {
         removePantryItem,
         searchValue,
         handleChange,
+        resetState,
       }}
     >
       {children}

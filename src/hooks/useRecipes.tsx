@@ -1,7 +1,7 @@
 import { data } from 'contexts/RecipesProvider/mockData';
 import { RequestStatus, Recipe } from 'contexts/RecipesProvider/types';
 import { useState, useCallback, useEffect } from 'react';
-import { parseRecipeResponse } from 'services/recipes';
+import { sameSearchedIngredients, parseRecipeResponse } from 'services/recipes';
 import { useFetch, useMock } from './useFetch';
 
 const useRecipes = () => {
@@ -29,6 +29,13 @@ const useRecipes = () => {
   const getRecipes = useCallback(
     (pantryItems: string[]) => {
       if (pantryItems.length) {
+        if (sameSearchedIngredients(searchedIngredients, pantryItems)) {
+          console.log(
+            'useRecipes > getRecipes callback > button click, searched ingredients are the same. Setting same recipes',
+          );
+          return setRecipes(recipes);
+        }
+
         console.log(
           'useRecipes > getRecipes callback > button click, page loading',
         );
@@ -43,7 +50,7 @@ const useRecipes = () => {
         );
       }
     },
-    [setEndPoint, setRequestStatus],
+    [setEndPoint, setRequestStatus, searchedIngredients, recipes, setRecipes],
   );
 
   const setResult = useCallback(() => {
@@ -66,6 +73,12 @@ const useRecipes = () => {
     getMockData,
   ]);
 
+  const resetState = () => {
+    setRequestStatus(RequestStatus.RECIPES_IDLE);
+    setRecipes([]);
+    setSearchedIngredients([]);
+  };
+
   useEffect(() => {
     if (result) {
       setResult();
@@ -78,6 +91,7 @@ const useRecipes = () => {
     searchedIngredients,
     setRequestStatus,
     getRecipes,
+    resetState,
   };
 };
 

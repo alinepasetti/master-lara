@@ -8,6 +8,18 @@ export const Container = styled.a`
   width: 90%;
   margin: 2em auto 0;
   text-decoration: none;
+
+  @media screen and (min-width: 768px) {
+    margin: 2em 0;
+    width: 47%;
+  }
+
+  @media screen and (min-width: 1042px) {
+    margin: 2em 0;
+    width: 31.5%;
+
+  }
+
   ${Heading} {
     color: ${({ theme }) => theme.colors.secondaryColor};
     font-size: 2rem;

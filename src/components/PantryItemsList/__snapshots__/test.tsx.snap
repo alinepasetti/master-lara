@@ -42,6 +42,7 @@ exports[`<PantryItemsList /> > should match snapshot with items 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .c1 > span > svg {
@@ -52,6 +53,18 @@ exports[`<PantryItemsList /> > should match snapshot with items 1`] = `
   display: inline-block;
   vertical-align: middle;
   overflow: hidden;
+}
+
+@media screen and (min-width:768px) {
+  .c1 {
+    width: 31.5%;
+  }
+}
+
+@media screen and (min-width:1164px) {
+  .c1 {
+    width: 23%;
+  }
 }
 
 <ul
