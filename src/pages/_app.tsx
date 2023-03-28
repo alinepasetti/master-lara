@@ -5,13 +5,16 @@ import { AppProps } from 'next/app';
 import '../../public/assets/fonts/styles.css';
 import { GlobalStyles } from '../styles/global-styles';
 import { RecipesProvider } from 'contexts/RecipesProvider';
+import { PantryProvider } from 'contexts/PantryProvider';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <RecipesProvider>
-        <Component {...pageProps} />
-        <GlobalStyles />
+        <PantryProvider>
+          <Component {...pageProps} />
+          <GlobalStyles />
+        </PantryProvider>
       </RecipesProvider>
     </ThemeProvider>
   );

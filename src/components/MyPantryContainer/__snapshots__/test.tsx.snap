@@ -87,6 +87,7 @@ exports[`<MyPantryContainer /> > should match snapshot 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .c2 > span > svg {

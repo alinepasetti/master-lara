@@ -29,14 +29,16 @@ const useRecipes = () => {
   const getRecipes = useCallback(
     (pantryItems: string[]) => {
       if (pantryItems.length) {
-        console.log(
-          'useRecipes > getRecipes callback > button click, page loading',
-        );
-
         if (sameSearchedIngredients(searchedIngredients, pantryItems)) {
+          console.log(
+            'useRecipes > getRecipes callback > button click, searched ingredients are the same. Setting same recipes',
+          );
           return setRecipes(recipes);
         }
 
+        console.log(
+          'useRecipes > getRecipes callback > button click, page loading',
+        );
         setRequestStatus(RequestStatus.RECIPES_LOADING);
 
         const endPoint = pantryItems.join('%2C');

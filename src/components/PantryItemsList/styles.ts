@@ -27,6 +27,7 @@ export const PantryItem = styled.li<HasIngredient>`${({ theme }) => css`
   & > span {
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
   }
 
   & > span > svg {
