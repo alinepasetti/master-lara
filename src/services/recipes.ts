@@ -68,12 +68,18 @@ export const compareIngredients = (
 export const buildMessage = (
   recipeLabel: ActiveRecipe['label'],
   ingredientLines: IngredientLinesChecked[],
+  recipeId: string,
 ): string => {
-  const missingIngredients = ingredientLines
-    .filter((ingredient) => !ingredient.hasIngredient)
-    .map((ingredient) => ingredient.ingredient)
-    .join(', ');
-  return `Come and cook ${recipeLabel} with me. Just bring: ${missingIngredients}. xoxo`;
+  console.log(`${window.location.protocol}//${window.location.hostname}`);
+  const baseUrl = `${window.location.protocol}//${window.location.hostname}`;
+  const lineBreak = '%0a';
+  const missingIngredients =
+    '- ' +
+    ingredientLines
+      .filter((ingredient) => !ingredient.hasIngredient)
+      .map((ingredient) => ingredient.ingredient)
+      .join(lineBreak + '- ');
+  return `Come and cook ${recipeLabel} with me.👩‍🍳${lineBreak}Just bring:${lineBreak}${missingIngredients}${lineBreak}xoxo ❤️${lineBreak}PS: curious? ${baseUrl}/recipe/${recipeId}`;
 };
 
 const calculateIngredientsRatio = (
