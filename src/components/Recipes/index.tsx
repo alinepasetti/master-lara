@@ -23,7 +23,7 @@ export const Recipes = () => {
       )}
 
       {requestStatus === RequestStatus.RECIPES_SUCCESS && !recipes.length && (
-        <Message>Ooops... No recipes found 😢🧆</Message>
+        <Message>Ooops... No recipes found 🧆😢</Message>
       )}
 
       {requestStatus === RequestStatus.RECIPES_SUCCESS &&

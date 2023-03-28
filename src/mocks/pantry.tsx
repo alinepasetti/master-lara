@@ -8,6 +8,7 @@ export const buildPantryProviderValueMock = (
   return {
     pantryItems,
     searchValue,
+    inputRef: null,
     removePantryItem,
     addPantryItem: vi.fn(),
     handleChange: vi.fn(),

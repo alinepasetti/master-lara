@@ -5,12 +5,13 @@ import { Button as AddPantryItemButton } from '../Button';
 import { Add } from '@styled-icons/material-outlined';
 
 export const PantryItemsSearchForm = () => {
-  const { searchValue, handleChange, addPantryItem } =
+  const { searchValue, handleChange, addPantryItem, inputRef } =
     useContext(PantryContext);
   return (
     <Styled.Container onSubmit={(event) => event.preventDefault()}>
       <Styled.InputWrapper>
         <Styled.Input
+          ref={inputRef}
           type="text"
           placeholder="What's in your pantry?"
           value={searchValue}
