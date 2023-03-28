@@ -11,7 +11,7 @@ export const Recipes = () => {
   return (
     <Styled.Container>
       {requestStatus === RequestStatus.RECIPES_ERROR && (
-        <Heading>Error loading recipes.</Heading>
+        <Heading>The chef overcooked it. 🔥 Try again. 🧆</Heading>
       )}
 
       {requestStatus === RequestStatus.RECIPES_LOADING && (

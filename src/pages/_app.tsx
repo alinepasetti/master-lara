@@ -6,17 +6,23 @@ import '../../public/assets/fonts/styles.css';
 import { GlobalStyles } from '../styles/global-styles';
 import { RecipesProvider } from 'contexts/RecipesProvider';
 import { PantryProvider } from 'contexts/PantryProvider';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
-      <RecipesProvider>
-        <PantryProvider>
-          <Component {...pageProps} />
-          <GlobalStyles />
-        </PantryProvider>
-      </RecipesProvider>
-    </ThemeProvider>
+    <>
+      <Head>
+        <title>Master Lara</title>
+      </Head>
+      <ThemeProvider theme={theme}>
+        <RecipesProvider>
+          <PantryProvider>
+            <Component {...pageProps} />
+            <GlobalStyles />
+          </PantryProvider>
+        </RecipesProvider>
+      </ThemeProvider>
+    </>
   );
 }
 

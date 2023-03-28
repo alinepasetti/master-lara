@@ -79,7 +79,10 @@ export const buildMessage = (
       .filter((ingredient) => !ingredient.hasIngredient)
       .map((ingredient) => ingredient.ingredient)
       .join(lineBreak + '- ');
-  return `Come and cook ${recipeLabel} with me.👩‍🍳${lineBreak}Just bring:${lineBreak}${missingIngredients}${lineBreak}xoxo ❤️${lineBreak}PS: curious? ${baseUrl}/recipe/${recipeId}`;
+  return `Come and cook ${recipeLabel.replace(
+    /[&]/g,
+    '%26',
+  )} with me.👩‍🍳${lineBreak}Just bring:${lineBreak}${missingIngredients}${lineBreak}xoxo ❤️${lineBreak}PS: curious? ${baseUrl}/recipe/${recipeId}`;
 };
 
 const calculateIngredientsRatio = (
