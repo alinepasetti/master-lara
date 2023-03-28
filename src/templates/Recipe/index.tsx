@@ -47,6 +47,7 @@ function RecipeDetail() {
               url={`https://api.whatsapp.com/send?text=${buildMessage(
                 activeRecipe.label,
                 activeRecipe.ingredientLines,
+                activeRecipe.id,
               )}`}
             >
               <Whatsapp /> Invite a friend!

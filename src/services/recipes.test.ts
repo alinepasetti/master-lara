@@ -33,14 +33,14 @@ describe('buildMessage', () => {
   it('should build the message with missing ingredients', () => {
     const RECIPE_MOCK = data.hits[0].recipe;
     const missingIngredients =
-      '1 garlic clove, 1/2 onion, 1/2 cup ground beef (or quorn mince)';
+      '1 garlic clove%0a- 1/2 onion%0a- 1/2 cup ground beef (or quorn mince)';
     const ingredientLines = hasIngredientCheck(
       RECIPE_MOCK.ingredientLines.slice(0, 3),
       ['sugar'],
     );
 
-    expect(buildMessage(RECIPE_MOCK.label, ingredientLines)).toEqual(
-      `Come and cook ${RECIPE_MOCK.label} with me. Just bring: ${missingIngredients}. xoxo`,
+    expect(buildMessage(RECIPE_MOCK.label, ingredientLines, '123abc')).toEqual(
+      `Come and cook ${RECIPE_MOCK.label} with me.👩‍🍳%0aJust bring:%0a- ${missingIngredients}%0axoxo ❤️%0aPS: curious? http://localhost/recipe/123abc`,
     );
   });
 });
