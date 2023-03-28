@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState, useRef } from 'react';
 
 const usePantry = () => {
   const [pantryItems, setPantryItems] = useState<string[]>([]);
@@ -7,6 +7,7 @@ const usePantry = () => {
     const { value } = event.target;
     setSearchValue(value);
   };
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const addPantryItem = (): void => {
     if (searchValue.length) {
@@ -17,6 +18,7 @@ const usePantry = () => {
           newPantryItem,
         ]);
         setSearchValue('');
+        inputRef.current.focus();
       } else {
         alert(
           'Pantry item is already on the list 🎻\nPlease, try another ingredient.',
@@ -44,6 +46,7 @@ const usePantry = () => {
     searchValue,
     handleChange,
     resetState,
+    inputRef,
   };
 };
 
